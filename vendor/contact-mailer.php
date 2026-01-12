@@ -14,7 +14,7 @@ if($_POST)
 
     $mail = new PHPMailer();
 
-    $your_email = "youremail@website.com";
+    $your_email = "info@diasamsolutions.com";
 
 
     //check if its an ajax request, exit if not
@@ -279,9 +279,11 @@ if($_POST)
 //    $mail->Port       = 587;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom($user_Email,$user_Name);
-    $mail->addAddress($your_email, 'Theme Industry');     // Add a recipient
-    $mail->addReplyTo($your_email, 'Information');
+    //Recipients
+    // Best practice: Send FROM your own domain, Reply-To the user
+    $mail->setFrom($your_email, 'DiaSam Smart Solutions Website');
+    $mail->addAddress($your_email, 'DiaSam Admin');     // Add a recipient
+    $mail->addReplyTo($user_Email, $user_Name);
 
 
     // Content
