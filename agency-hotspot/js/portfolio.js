@@ -6,72 +6,67 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // --- Configuration & State ---
     
-    // Image Data - Using placeholder URLs since local files are missing
-    // In production, replace src with: 'pic/Daytime.jpg', etc.
+    // Image Data
     const imageSets = [
-        // Set 1
+        // Set 1 (6 Daytime)
         [
-            { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80', alt: 'Daytime Project 1', id: 0 },
-            { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', alt: 'Daytime Project 2', id: 1 },
-            { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80', alt: 'Daytime Project 3', id: 2 },
-            { src: 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&q=80', alt: 'Daytime Project 4', id: 3 },
-            { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80', alt: 'Daytime Project 5', id: 4 },
-            { src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80', alt: 'Daytime Project 6', id: 5 }
+            { src: 'agency-hotspot/images/portfolio/Daytime1.jpg', alt: 'Daytime 1', id: 0 },
+            { src: 'agency-hotspot/images/portfolio/Daytime2.jpg', alt: 'Daytime 2', id: 1 },
+            { src: 'agency-hotspot/images/portfolio/Daytime3.jpg', alt: 'Daytime 3', id: 2 },
+            { src: 'agency-hotspot/images/portfolio/Daytime4.jpg', alt: 'Daytime 4', id: 3 },
+            { src: 'agency-hotspot/images/portfolio/Daytime5.jpg', alt: 'Daytime 5', id: 4 },
+            { src: 'agency-hotspot/images/portfolio/Daytime6.jpg', alt: 'Daytime 6', id: 5 }
         ],
-        // Set 2
+        // Set 2 (4 Daytime, 2 Nighttime)
         [
-            { src: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80', alt: 'Daytime Project 7', id: 6 },
-            { src: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&q=80', alt: 'Daytime Project 8', id: 7 },
-            { src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80', alt: 'Daytime Project 9', id: 8 },
-            { src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80', alt: 'Daytime Project 10', id: 9 },
-            { src: 'https://images.unsplash.com/photo-1470219556762-1771e7c9458d?w=800&q=80', alt: 'Night Project 1', id: 10 },
-            { src: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=800&q=80', alt: 'Night Project 2', id: 11 }
+            { src: 'agency-hotspot/images/portfolio/Daytime7.jpg', alt: 'Daytime 7', id: 6 },
+            { src: 'agency-hotspot/images/portfolio/Daytime8.jpg', alt: 'Daytime 8', id: 7 },
+            { src: 'agency-hotspot/images/portfolio/Daytime9.jpg', alt: 'Daytime 9', id: 8 },
+            { src: 'agency-hotspot/images/portfolio/Daytime10.jpg', alt: 'Daytime 10', id: 9 },
+            { src: 'agency-hotspot/images/portfolio/Night1.jpg', alt: 'Night 1', id: 10 },
+            { src: 'agency-hotspot/images/portfolio/Night2.jpg', alt: 'Night 2', id: 11 }
         ],
-        // Set 3
+        // Set 3 (6 Nighttime)
         [
-            { src: 'https://images.unsplash.com/photo-1516245834210-c4c14278733f?w=800&q=80', alt: 'Night Project 3', id: 12 },
-            { src: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=800&q=80', alt: 'Night Project 4', id: 13 },
-            { src: 'https://images.unsplash.com/photo-1481487163916-2ea84e55e376?w=800&q=80', alt: 'Night Project 5', id: 14 },
-            { src: 'https://images.unsplash.com/photo-1461301214746-1e790926d323?w=800&q=80', alt: 'Night Project 6', id: 15 },
-            { src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80', alt: 'Night Project 7', id: 16 },
-            { src: 'https://images.unsplash.com/photo-1555597673-b21d5c935865?w=800&q=80', alt: 'Night Project 8', id: 17 }
+            { src: 'agency-hotspot/images/portfolio/Night3.jpg', alt: 'Night 3', id: 12 },
+            { src: 'agency-hotspot/images/portfolio/Night4.jpg', alt: 'Night 4', id: 13 },
+            { src: 'agency-hotspot/images/portfolio/Night5.jpg', alt: 'Night 5', id: 14 },
+            { src: 'agency-hotspot/images/portfolio/Night6.jpg', alt: 'Night 6', id: 15 },
+            { src: 'agency-hotspot/images/portfolio/Night7.jpg', alt: 'Night 7', id: 16 },
+            { src: 'agency-hotspot/images/portfolio/Night8.jpg', alt: 'Night 8', id: 17 }
         ],
-        // Set 4 (Repeats as per instructions for 19 images total in sets of 6)
+        // Set 4 (Nighttime 9 + 5 fillers to complete 3x2 grid)
         [
-            { src: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=80', alt: 'Night Project 9', id: 18 },
-            { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80', alt: 'Daytime Project 1 (Rep)', id: 0 },
-            { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', alt: 'Daytime Project 2 (Rep)', id: 1 },
-            { src: 'https://images.unsplash.com/photo-1470219556762-1771e7c9458d?w=800&q=80', alt: 'Night Project 1 (Rep)', id: 10 },
-            { src: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=800&q=80', alt: 'Night Project 2 (Rep)', id: 11 },
-            { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80', alt: 'Daytime Project 3 (Rep)', id: 2 }
+            { src: 'agency-hotspot/images/portfolio/Night9.jpg', alt: 'Night 9', id: 18 },
+            { src: 'agency-hotspot/images/portfolio/Night1.jpg', alt: 'Project Highlight', id: 10 },
+            { src: 'agency-hotspot/images/portfolio/Night2.jpg', alt: 'Project Highlight', id: 11 },
+            { src: 'agency-hotspot/images/portfolio/Night3.jpg', alt: 'Project Highlight', id: 12 },
+            { src: 'agency-hotspot/images/portfolio/Night4.jpg', alt: 'Project Highlight', id: 13 },
+            { src: 'agency-hotspot/images/portfolio/Night5.jpg', alt: 'Project Highlight', id: 14 }
         ]
     ];
 
-    // Flatten all unique images for modal navigation (Total 19 unique images)
-    // We filter based on unique IDs to avoid duplicate navigation in modal
-    // Actually, distinct array of 19 images
+    // Flatten all unique images for modal navigation
     const allUniqueImages = [
-        // Daytime 10
-        { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=90', id: 0 },
-        { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=90', id: 1 },
-        { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=90', id: 2 },
-        { src: 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1600&q=90', id: 3 },
-        { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=90', id: 4 },
-        { src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=90', id: 5 },
-        { src: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1600&q=90', id: 6 },
-        { src: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1600&q=90', id: 7 },
-        { src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=90', id: 8 },
-        { src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=90', id: 9 },
-        // Night 9
-        { src: 'https://images.unsplash.com/photo-1470219556762-1771e7c9458d?w=1600&q=90', id: 10 },
-        { src: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=1600&q=90', id: 11 },
-        { src: 'https://images.unsplash.com/photo-1516245834210-c4c14278733f?w=1600&q=90', id: 12 },
-        { src: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=1600&q=90', id: 13 },
-        { src: 'https://images.unsplash.com/photo-1481487163916-2ea84e55e376?w=1600&q=90', id: 14 },
-        { src: 'https://images.unsplash.com/photo-1461301214746-1e790926d323?w=1600&q=90', id: 15 },
-        { src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=90', id: 16 },
-        { src: 'https://images.unsplash.com/photo-1555597673-b21d5c935865?w=1600&q=90', id: 17 },
-        { src: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1600&q=90', id: 18 }
+        { src: 'agency-hotspot/images/portfolio/Daytime1.jpg', id: 0 },
+        { src: 'agency-hotspot/images/portfolio/Daytime2.jpg', id: 1 },
+        { src: 'agency-hotspot/images/portfolio/Daytime3.jpg', id: 2 },
+        { src: 'agency-hotspot/images/portfolio/Daytime4.jpg', id: 3 },
+        { src: 'agency-hotspot/images/portfolio/Daytime5.jpg', id: 4 },
+        { src: 'agency-hotspot/images/portfolio/Daytime6.jpg', id: 5 },
+        { src: 'agency-hotspot/images/portfolio/Daytime7.jpg', id: 6 },
+        { src: 'agency-hotspot/images/portfolio/Daytime8.jpg', id: 7 },
+        { src: 'agency-hotspot/images/portfolio/Daytime9.jpg', id: 8 },
+        { src: 'agency-hotspot/images/portfolio/Daytime10.jpg', id: 9 },
+        { src: 'agency-hotspot/images/portfolio/Night1.jpg', id: 10 },
+        { src: 'agency-hotspot/images/portfolio/Night2.jpg', id: 11 },
+        { src: 'agency-hotspot/images/portfolio/Night3.jpg', id: 12 },
+        { src: 'agency-hotspot/images/portfolio/Night4.jpg', id: 13 },
+        { src: 'agency-hotspot/images/portfolio/Night5.jpg', id: 14 },
+        { src: 'agency-hotspot/images/portfolio/Night6.jpg', id: 15 },
+        { src: 'agency-hotspot/images/portfolio/Night7.jpg', id: 16 },
+        { src: 'agency-hotspot/images/portfolio/Night8.jpg', id: 17 },
+        { src: 'agency-hotspot/images/portfolio/Night9.jpg', id: 18 }
     ];
 
     let currentSet = 0;
@@ -127,8 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(() => {
             let nextSet = currentSet + direction;
-            if (nextSet >= 4) nextSet = 0;
-            if (nextSet < 0) nextSet = 3;
+            if (nextSet >= imageSets.length) nextSet = 0;
+            if (nextSet < 0) nextSet = imageSets.length - 1;
             
             currentSet = nextSet;
             renderGrid(currentSet);

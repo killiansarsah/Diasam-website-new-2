@@ -34,6 +34,7 @@
     <link href="agency-hotspot/css/about-us.css" rel="stylesheet" />
     <link rel="stylesheet" href="agency-hotspot/css/preloader-logo.css" />
     <link rel="stylesheet" href="agency-hotspot/css/portfolio.css" />
+    <link rel="stylesheet" href="agency-hotspot/css/icon-nav.css" />
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="90">
@@ -55,6 +56,25 @@
 
     <!-- START HEADER -->
     <div class="wrap_container cursor-light">
+      <!-- Vertical Icon Navigation -->
+      <div class="icon-nav-container d-none d-md-flex">
+        <a href="#home-banner" class="icon-nav-item active" data-tooltip="Home">
+          <i class="las la-home"></i>
+        </a>
+        <a href="#about" class="icon-nav-item" data-tooltip="Our Services">
+          <i class="las la-cog"></i>
+        </a>
+        <a href="#team" class="icon-nav-item" data-tooltip="About Us">
+          <i class="las la-users"></i>
+        </a>
+        <a href="#portfolio" class="icon-nav-item" data-tooltip="Our Works">
+          <i class="las la-images"></i>
+        </a>
+        <a href="#contact" class="icon-nav-item" data-tooltip="Contact">
+          <i class="las la-envelope"></i>
+        </a>
+      </div>
+
       <div class="main_container">
         <div class="side_nav">
           <div class="my-sticky-nav">
@@ -99,7 +119,7 @@
                       data-menuanchor="about"
                       class="nav-link link line"
                       href="#about"
-                      >About Agency</a
+                      >Our Services</a
                     >
                   </li>
                   <li class="nav-item">
@@ -107,7 +127,7 @@
                       data-menuanchor="team"
                       class="nav-link link line"
                       href="#team"
-                      >Our Team</a
+                      >About Us</a
                     >
                   </li>
                   <li class="nav-item">
@@ -170,7 +190,6 @@
               <img
                 src="agency-hotspot/images/diasam_logo.png"
                 alt="Logo"
-                style="height: 100%; width: 100%"
               />
             </a>
           </nav>
@@ -189,10 +208,10 @@
                   <a class="nav-link" href="#home-banner">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#about">About Agency</a>
+                  <a class="nav-link" href="#about">Our Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#team">Our Team</a>
+                  <a class="nav-link" href="#team">About Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#portfolio">Our Works</a>
@@ -408,7 +427,7 @@
 
       <!-- START ABOUT US / TEAM -->
       <section class="section slide3 team about-us-section" id="team">
-        <div class="bg-overlay bg-yellow opacity-8"></div>
+        <div class="bg-overlay bg-brown opacity-8"></div>
         <div class="container expand-container">
           <!-- Section Heading -->
           <div class="row">
@@ -458,7 +477,7 @@
                       <div class="team-member-card">
                         <div class="card-image-section">
                           <img 
-                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=600&q=80&fit=crop" 
+                            src="agency-hotspot/images/fafa.jpeg" 
                             alt="Sam G - CEO" 
                             class="team-member-photo"
                             style="object-position: center 50%;"
@@ -476,7 +495,7 @@
                       <div class="team-member-card">
                         <div class="card-image-section">
                           <img 
-                            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=600&q=80&fit=crop" 
+                            src="agency-hotspot/images/killian.jpeg" 
                             alt="Killian S - Team Member" 
                             class="team-member-photo"
                             style="object-position: center 50%;"
@@ -498,7 +517,7 @@
                     <div class="team-member-card carousel-card" data-index="0">
                       <div class="card-image-section">
                         <img 
-                          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=600&q=80&fit=crop" 
+                          src="agency-hotspot/images/fafa.jpeg" 
                           alt="Sam G - CEO" 
                           class="team-member-photo"
                           style="object-position: center 50%;"
@@ -514,7 +533,7 @@
                     <div class="team-member-card carousel-card" data-index="1" style="display: none;">
                       <div class="card-image-section">
                         <img 
-                          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=600&q=80&fit=crop" 
+                          src="agency-hotspot/images/killian.jpeg" 
                           alt="Killian S - Team Member" 
                           class="team-member-photo"
                           style="object-position: center 50%;"
@@ -917,9 +936,7 @@
           </li>
         </ul>
       </div>
-      <div class="slider-copyright text-white link">
-        <span>© 2026 DiaSam Smart Solutions.</span>
-      </div>
+
     </div>
     <!-- End Copyright -->
 

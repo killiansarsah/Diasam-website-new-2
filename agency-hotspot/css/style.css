@@ -275,6 +275,9 @@ section {
 .bg-pink {
   background: #9a004c;
 }
+.bg-brown {
+  background: #8B4513;
+}
 .bg-yellow {
   background: #ca9800;
 }
@@ -525,11 +528,11 @@ section {
 .side-nav-menu .nav-menu {
   font-family: "Montserrat", sans-serif;
   padding-left: 35px;
-  padding-top: 120px;
+  padding-top: 80px; /* Reduced from 120px */
 }
 
 .broad .side-nav-menu ul {
-  padding-top: 130px;
+  padding-top: 100px; /* Reduced from 130px */
 }
 
 .side-nav-menu .nav-menu li,
@@ -537,7 +540,7 @@ section {
   list-style: none;
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduced from 30px */
   transition: 1s ease;
   overflow: hidden;
   box-sizing: border-box;
@@ -866,13 +869,13 @@ section {
   animation-delay: 0.7s;
   animation-fill-mode: both;
   color: #d6d6d6;
-  margin-top: -89px !important;
+  margin-top: 20px !important; /* Changed from negative margin to positive spacing */
 }
 
 .broad-nav .side-nav-menu ul {
   position: relative;
   left: 15%;
-  transform: translate(-25px, -91px);
+  transform: none; /* Removed negative transform */
 }
 
 .broad .side-nav-menu ul li {
@@ -952,8 +955,8 @@ section {
 
 .rites-res {
   position: absolute;
-  bottom: 30px;
-  padding-left: 30px;
+  bottom: 20px; /* Moved slightly more to the bottom */
+  padding-left: 35px;
 }
 
 .broad .rites-res {
@@ -1099,8 +1102,9 @@ section {
 }
 
 .side-nav-menu .slider-social {
+  position: absolute;
   right: auto;
-  bottom: 80px;
+  bottom: 60px; /* Moved down to avoid overlapping with Contact link */
 }
 
 .slider-social ul > li {
@@ -1238,10 +1242,11 @@ svg.slider-shape {
 ====================================== */
 
 .team {
-  background-image: url("../images/team-bg.jpg");
+  background-image: url("../images/about-us-bg.jpg");
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   width: 95%;
   margin-left: 5%;
 }
@@ -2125,7 +2130,7 @@ svg.slider-shape {
   }
   .side-nav-menu .nav-menu {
     padding-left: 35px;
-    padding-top: 350px;
+    padding-top: 150px; /* Reduced from 350px to prevent overlap on shorter screens */
   }
   .rites-res {
     bottom: 0;
@@ -2207,7 +2212,7 @@ svg.slider-shape {
   }
   .side-nav-menu .nav-menu {
     padding-left: 35px;
-    padding-top: 220px;
+    padding-top: 120px; /* Reduced from 220px */
   }
 
   /* Banner */
@@ -2308,6 +2313,10 @@ svg.slider-shape {
   /* Nav-Bar */
   .navbar {
     padding: 6px 10px;
+  }
+  .navbar-brand img {
+    max-width: 120px;
+    height: auto;
   }
 
   /* Banner */

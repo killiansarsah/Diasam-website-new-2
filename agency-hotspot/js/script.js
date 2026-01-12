@@ -59,7 +59,7 @@ $(window).on("load", function () {
             navigation: {
                 'bulletsColor': '#535353',
                 'position': 'left',
-                'tooltips': ['Home', 'About Agency', 'Our Team', 'Our Works', 'Contact'],
+                'tooltips': ['Home', 'Our Services', 'About Us', 'Our Works', 'Contact'],
             },
 
             //events
@@ -78,6 +78,10 @@ $(window).on("load", function () {
                         $('.slider-copyright').fadeIn();
                     }, 600);
                 }
+
+                // Sync Icon Navigation
+                $('.icon-nav-item').removeClass('active');
+                $('.icon-nav-item').eq(nextIndex - 1).addClass('active');
 
                 //Team Counter
                 if(nextIndex == 3) {

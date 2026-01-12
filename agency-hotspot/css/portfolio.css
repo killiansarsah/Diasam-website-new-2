@@ -325,9 +325,9 @@
 
 @media (max-width: 768px) {
     .works-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        max-width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 95%;
     }
     .nav-controls {
         gap: 15px;
