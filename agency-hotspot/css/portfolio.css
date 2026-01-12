@@ -1,0 +1,374 @@
+/* ===================================
+    DiaSam Portfolio / Our Works Section
+====================================== */
+
+/* Section Heading */
+.portfolio-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.portfolio-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* PagePiling Section Specifics */
+#portfolio {
+    /* Removed display: flex to avoid PagePiling conflict */
+    /* justify-content: center; removed */
+    background-color: #171717; /* Fallback to prevent transparency */
+    position: relative;
+    z-index: 1; /* Ensure stacking context */
+    overflow: hidden; /* Ensure content stays in */
+}
+
+/* Portfolio Backdrop (Blur & Overlay) */
+.portfolio-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.portfolio-backdrop::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background-image: url('../images/our-works-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.portfolio-backdrop::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark Overlay */
+    z-index: 2;
+}
+
+/* Ensure content sits above backdrop */
+#portfolio .container {
+    position: relative;
+    z-index: 5;
+}
+
+/* Image Grid */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+/* Grid Item Card */
+.grid-item {
+    position: relative;
+    aspect-ratio: 16/10;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover Effects */
+.grid-item:hover {
+    transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+}
+
+.grid-item:hover img {
+    transform: scale3d(1.1, 1.1, 1);
+}
+
+/* Navigation Controls Container */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Prev/Next Buttons */
+.nav-btn-bottom {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-btn-bottom i {
+    font-size: 1.2rem;
+}
+
+.nav-btn-bottom:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale3d(1.15, 1.15, 1) translate3d(0, -2px, 0);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn-bottom:active {
+    transform: scale3d(0.95, 0.95, 1);
+}
+
+/* Dot Indicators */
+.nav-dots {
+    display: flex;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.dot.active {
+    background: #ffffff;
+    transform: scale3d(1.4, 1.4, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ===================================
+    Full Screen Modal
+====================================== */
+.portfolio-modal-overlay {
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    transform: scale3d(0.8, 0.8, 1);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.portfolio-modal-overlay.active .modal-image {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+}
+
+/* Modal Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 100001;
+    color: white;
+    font-size: 40px;
+    font-weight: 200;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg) scale3d(1.1, 1.1, 1);
+}
+
+/* Modal Nav Buttons */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100001;
+}
+
+.modal-nav-btn.prev {
+    left: 40px;
+}
+
+.modal-nav-btn.next {
+    right: 40px;
+}
+
+.modal-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate3d(0, -50%, 0) scale3d(1.1, 1.1, 1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) {
+    .works-grid {
+        max-width: 1100px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .works-grid {
+        max-width: 950px;
+        gap: 15px;
+    }
+    .portfolio-title {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 90%;
+    }
+    .nav-controls {
+        gap: 15px;
+    }
+    .nav-btn-bottom {
+        width: 40px;
+        height: 40px;
+    }
+    .modal-close-btn {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    .modal-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    .modal-nav-btn.prev {
+        left: 15px;
+    }
+    .modal-nav-btn.next {
+        right: 15px;
+    }
+}
+
+/* Height based queries */
+@media (max-height: 800px) {
+    .portfolio-title {
+        font-size: 1.5rem;
+    }
+    .portfolio-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    .grid-item {
+        border-radius: 8px;
+    }
+    .nav-controls {
+        margin-top: 15px;
+    }
+}
