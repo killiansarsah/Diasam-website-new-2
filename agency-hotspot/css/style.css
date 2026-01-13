@@ -195,6 +195,7 @@ section {
 /* button */
 .btn {
   -webkit-appearance: initial;
+  appearance: initial;
   overflow: hidden;
   position: -webkit-sticky;
   position: sticky;
@@ -450,7 +451,7 @@ section {
   margin-right: 20px;
   cursor: pointer;
   transition: 0.8s ease;
-  display: inline-block;
+  display: block;
   float: right;
   z-index: 12;
 }
@@ -469,7 +470,28 @@ section {
   width: 25px;
   background-color: #232728;
   margin-bottom: 4px;
-  transition: 0.7s ease;
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transform-origin: center;
+}
+
+/* Morphing to X when menu is open */
+.close_nav span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  width: 20px;
+}
+
+.close_nav span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.close_nav span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  width: 20px;
+}
+
+.close_nav:hover {
+  transform: rotate(180deg);
 }
 
 /* ===================================
@@ -522,6 +544,21 @@ section {
   margin-bottom: 3px;
   height: 2px;
   background-color: #444444;
+  width: 20px;
+  transition: all 0.3s ease;
+}
+
+.my_nav_tog:hover span:nth-child(1) {
+  width: 10px;
+  transform: translateX(10px);
+}
+
+.my_nav_tog:hover span:nth-child(2) {
+  width: 15px;
+  transform: translateX(5px);
+}
+
+.my_nav_tog:hover span:nth-child(3) {
   width: 20px;
 }
 
@@ -885,52 +922,70 @@ section {
 
 /*side close btn*/
 .broad .btn-close {
-  height: 33px;
-  width: 33px;
-  display: inline-block;
-  text-align: center;
+  height: 45px;
+  width: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 30px;
   right: 30px;
   cursor: pointer;
   color: #444444;
-  z-index: 111;
-  transition: 0.5s ease;
+  z-index: 1111;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .broad.before-side .btn-close {
   display: none;
 }
 
+/* Entrance animation when broad-nav is active */
+.broad-nav .btn-close {
+  animation: closeBtnEntrance 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+  transform: scale(0) rotate(-180deg);
+}
+
+@keyframes closeBtnEntrance {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
 .broad .btn-close::before,
 .broad .btn-close::after {
   position: absolute;
-  left: 16px;
   content: " ";
   height: 24px;
   width: 2px;
   background: black;
-  top: 5px;
-  transition: 0.5s ease;
-}
-
-.broad .btn-close:hover::before,
-.broad .btn-close:hover::after {
-  height: 28px;
+  transition: all 0.4s ease;
 }
 
 .broad .btn-close:before {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .broad .btn-close:after {
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+}
+
+/* Hover Effects */
+.broad .btn-close:hover {
+  background: #11769e; /* Using the theme blue */
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 4px 15px rgba(17, 118, 158, 0.3);
+}
+
+.broad .btn-close:hover::before,
+.broad .btn-close:hover::after {
+  background: white;
+  height: 20px; /* Slight shrink for effect */
 }
 
 .broad.right-btn .btn-close {
@@ -1813,7 +1868,7 @@ svg.slider-shape {
 #animated-cursor {
   position: absolute;
   left: 0;
-  display: none;
+  display: block;
   top: 0;
   width: 30px;
   height: 30px;
@@ -1823,9 +1878,7 @@ svg.slider-shape {
   transition: opacity 0.2s ease-in-out 0.5s;
 }
 
-.cursor-light:hover ~ #animated-cursor {
-  display: inline-block;
-}
+/* Cursor is now enabled by default */
 
 #cursor {
   position: fixed;
@@ -1917,8 +1970,9 @@ svg.slider-shape {
   }
 }
 
+/* Ensure cursor stays visible even when header appears */
 .header-appear.cursor-light:hover ~ #animated-cursor {
-  display: none;
+  display: block;
 }
 
 .header-appear .animated-wrap,
@@ -2312,8 +2366,27 @@ svg.slider-shape {
 
   /* Nav-Bar */
   .navbar {
-    padding: 6px 10px;
+    padding: 10px 15px;
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
+
+  /* Ensure fixed-top works on mobile */
+  #home.fixed-top {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000 !important;
+    background-color: #ffffff !important;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
   .navbar-brand img {
     max-width: 120px;
     height: auto;

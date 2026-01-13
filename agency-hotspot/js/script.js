@@ -269,6 +269,7 @@ function  my_click() {
 
         $(".overlay-body").addClass("show_body_overlay");
         $('#pp-nav').hide();
+        $('.icon-nav-container').addClass('nav-hidden');
     });
 
     $('#close_nav').on("click", function () {
@@ -279,6 +280,7 @@ function  my_click() {
 
         $(".overlay-body").removeClass("show_body_overlay");
         $('#pp-nav').show();
+        $('.icon-nav-container').removeClass('nav-hidden');
     });
 }
 
@@ -289,6 +291,7 @@ $('.side-nav-menu .nav-menu li a').on("click", function () {
     $("#my_tog").removeClass("close_nav");
     $("#close_nav").attr("id","my_tog");
     $('#pp-nav').show();
+    $('.icon-nav-container').removeClass('nav-hidden');
     $('.side-nav-menu .nav-menu .nav-item .nav-link').removeClass('active');
     $(this).addClass('active');
 });
@@ -302,17 +305,20 @@ $('.my_nav_tog').click(function() {
     $('.broad').css({ opacity: "1" });
     $('.head-nav').hide();
     $('body').addClass('show-modal');
+    $('.icon-nav-container').addClass('nav-hidden');
 });
 
 $('.btn-close').click(function() {
     $('.broad').css({ opacity: "0" });
     $('body').removeClass('show-modal');
+    $('.icon-nav-container').removeClass('nav-hidden');
     setTimeout(function() {$('.broad').removeClass('broad-nav')},100);
 });
 
 $('.broad ul li a').click(function () {
     $('.broad').css({ opacity: "0" });
     $('body').removeClass('show-modal');
+    $('.icon-nav-container').removeClass('nav-hidden');
     setTimeout(function() {$('.broad').removeClass('broad-nav')},100);
 });
 
@@ -323,7 +329,7 @@ $('.broad ul li a').click(function () {
 $(window).on('scroll', function () {
 
     if($(window).width() <= 767){
-        if ($(this).scrollTop() > 300) {
+        if ($(this).scrollTop() > 50) {
             $('#home').addClass('fixed-top')
             $('#home').addClass('fix-top')
             $('#pagepiling').addClass('margin-manage');
@@ -345,6 +351,7 @@ $('.overlay-body').on('click', function(e) {
     $("#my_tog").removeClass("close_nav");
     $("#close_nav").attr("id","my_tog");
     $(".overlay-body").removeClass('show_body_overlay');
+    $('.icon-nav-container').removeClass('nav-hidden');
 });
 
 /* =====================================

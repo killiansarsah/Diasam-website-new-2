@@ -5,7 +5,7 @@
 // Team carousel state and configuration
 let currentTeamIndex = 0;
 let autoRotateInterval = null;
-const AUTO_ROTATE_DELAY = 4000; // 4 seconds
+const AUTO_ROTATE_DELAY = 3000; // 3 seconds
 
 // Initialize carousel on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -89,13 +89,18 @@ function goToTeamMember(index) {
       card.style.display = 'flex';
       // Force reflow to ensure transition works
       card.offsetHeight;
-      card.style.opacity = '1';
+      // Slight delay for smoother start
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.zIndex = '2';
+      }, 50);
     } else {
       // Fade out other cards
       card.style.opacity = '0';
+      card.style.zIndex = '1';
       setTimeout(() => {
         card.style.display = 'none';
-      }, 500); // Match transition duration
+      }, 600); // Match new transition duration
     }
   });
 

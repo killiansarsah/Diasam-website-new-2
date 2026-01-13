@@ -16,6 +16,11 @@ function openServiceModal(serviceId) {
 
     // Add escape key listener
     document.addEventListener("keydown", handleEscapeKey);
+
+    // Hide icon nav
+    if (typeof jQuery !== 'undefined') {
+      $('.icon-nav-container').addClass('nav-hidden');
+    }
   }
 }
 
@@ -32,6 +37,11 @@ function closeServiceModal(modalId) {
 
     // Remove escape key listener
     document.removeEventListener("keydown", handleEscapeKey);
+
+    // Show icon nav
+    if (typeof jQuery !== 'undefined') {
+      $('.icon-nav-container').removeClass('nav-hidden');
+    }
   }
 }
 
@@ -57,6 +67,11 @@ function handleEscapeKey(event) {
 
     // Remove this event listener
     document.removeEventListener("keydown", handleEscapeKey);
+
+    // Show icon nav
+    if (typeof jQuery !== 'undefined') {
+      $('.icon-nav-container').removeClass('nav-hidden');
+    }
   }
 }
 
