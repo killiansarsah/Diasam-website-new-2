@@ -40,14 +40,14 @@
   <body data-spy="scroll" data-target=".navbar" data-offset="90">
     <!-- Preloader -->
     <div class="loader" id="loader-fade">
-      <div style="text-align: center">
-        <img
-          src="agency-hotspot/images/diasam_logo.png"
-          alt="DiaSam Smart Solutions - Loading"
-          class="preloader-logo"
-        />
-        <div class="linear-activity">
-          <div class="indeterminate"></div>
+      <div class="preloader-inner">
+        <div class="circular-loader-wrap">
+          <div class="circular-loader"></div>
+          <img
+            src="agency-hotspot/images/diasam_logo.png"
+            alt="DiaSam Smart Solutions - Loading"
+            class="preloader-logo"
+          />
         </div>
       </div>
     </div>
@@ -253,7 +253,7 @@
       <section class="section slide1 p-0" id="home-banner">
         <div class="slider-area" id="slider-area">
           <video autoplay muted loop playsinline id="hero-video">
-            <source src="Hue-Secure-Functional-Video-16x9-low-res-HQ1.mp4" type="video/mp4">
+            <source src="agency-hotspot/videos/Hue-Secure-Functional-Video-16x9-low-res-HQ1.mp4" type="video/mp4">
           </video>
           <div class="bg-overlay bg-blue opacity-8"></div>
           <div class="container">
@@ -323,7 +323,7 @@
                       clip-path="url(#shape-img)"
                       height="100%"
                       width="100%"
-                      xlink:href="slider-img.png"
+                      xlink:href="agency-hotspot/images/slider-img.png"
                     />
                   </svg>
                 </div>
@@ -336,7 +336,7 @@
 
       <!-- START ABOUT -->
       <section class="section slide2 about" id="about">
-        <div class="bg-overlay bg-pink opacity-8"></div>
+        <div class="bg-overlay bg-service-overlay"></div>
         <div class="container expand-container">
           <div
             class="col-12 px-0 section-heading about-fadeIn wow"
@@ -346,7 +346,7 @@
           </div>
           <div class="row pb-3">
             <!-- Feature Box -->
-            <div class="col-12 col-md-3 about-zoom1In wow" data-wow-delay=".2s">
+            <div class="col-12 col-md-6 col-lg-3 about-zoom1In wow" data-wow-delay=".2s">
               <div class="feature-item text-center text-md-left clickable-feature" onclick="openServiceModal('smart-home')">
                 <i class="las la-home f-icon"></i>
                 <h5 class="title main-font mt-1">Smart Home</h5>
@@ -358,7 +358,7 @@
               </div>
             </div>
             <!-- Feature Box -->
-            <div class="col-12 col-md-3 about-zoom2In wow" data-wow-delay=".4s">
+            <div class="col-12 col-md-6 col-lg-3 about-zoom2In wow" data-wow-delay=".4s">
               <div class="feature-item text-center text-md-left clickable-feature" onclick="openServiceModal('home-security')">
                 <i class="las la-shield-alt f-icon"></i>
                 <h5 class="title main-font mt-1">Home Security</h5>
@@ -370,7 +370,7 @@
               </div>
             </div>
             <!-- Feature Box -->
-            <div class="col-12 col-md-3 about-zoom3In wow" data-wow-delay=".6s">
+            <div class="col-12 col-md-6 col-lg-3 about-zoom3In wow" data-wow-delay=".6s">
               <div class="feature-item text-center text-md-left clickable-feature" onclick="openServiceModal('surveillance')">
                 <i class="las la-video f-icon"></i>
                 <h5 class="title main-font mt-1">Surveillance</h5>
@@ -382,7 +382,7 @@
               </div>
             </div>
             <!-- Feature Box -->
-            <div class="col-12 col-md-3 about-zoom4In wow" data-wow-delay=".8s">
+            <div class="col-12 col-md-6 col-lg-3 about-zoom4In wow" data-wow-delay=".8s">
               <div class="feature-item text-center text-md-left clickable-feature" onclick="openServiceModal('protection')">
                 <i class="las la-user-shield f-icon"></i>
                 <h5 class="title main-font mt-1">24/7 Protection</h5>
@@ -616,7 +616,7 @@
           <div class="row">
             <div class="col-12 col-lg-7 section5left wow" data-wow-delay=".8s">
               <h4 class="heading text-center text-md-left main-font">
-                Questions?<span class="d-block">Let's Get In Touch</span>
+                Questions?<span class="d-block">How Can we help?</span>
               </h4>
               <form
                 class="row contact-form wow fadeInLeft"

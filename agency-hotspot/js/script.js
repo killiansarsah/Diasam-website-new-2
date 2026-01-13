@@ -302,24 +302,24 @@ $('.side-nav-menu .nav-menu li a').on("click", function () {
 
 $('.my_nav_tog').click(function() {
     $('.broad').addClass('broad-nav');
-    $('.broad').css({ opacity: "1" });
     $('.head-nav').hide();
     $('body').addClass('show-modal');
+    $(".overlay-body").addClass("show_body_overlay");
     $('.icon-nav-container').addClass('nav-hidden');
 });
 
 $('.btn-close').click(function() {
-    $('.broad').css({ opacity: "0" });
+    $('.broad').removeClass('broad-nav');
     $('body').removeClass('show-modal');
+    $(".overlay-body").removeClass("show_body_overlay");
     $('.icon-nav-container').removeClass('nav-hidden');
-    setTimeout(function() {$('.broad').removeClass('broad-nav')},100);
 });
 
 $('.broad ul li a').click(function () {
-    $('.broad').css({ opacity: "0" });
+    $('.broad').removeClass('broad-nav');
     $('body').removeClass('show-modal');
+    $(".overlay-body").removeClass("show_body_overlay");
     $('.icon-nav-container').removeClass('nav-hidden');
-    setTimeout(function() {$('.broad').removeClass('broad-nav')},100);
 });
 
 /* ===================================

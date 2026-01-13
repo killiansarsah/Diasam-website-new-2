@@ -223,4 +223,59 @@ document.addEventListener('DOMContentLoaded', function() {
         navigateModal(1);
     });
 
+    // --- Mobile Swipe Logic for Grid ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50; // Minimum distance to be considered a swipe
+
+    if (gridContainer) {
+        gridContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        gridContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        const displacement = touchEndX - touchStartX;
+        
+        // --- Modal Swipe ---
+        if (modalInfo.isOpen) {
+            if (Math.abs(displacement) > swipeThreshold) {
+                if (displacement > 0) {
+                    navigateModal(-1); // Swipe Right -> Prev
+                } else {
+                    navigateModal(1);  // Swipe Left -> Next
+                }
+            }
+            return; // Prevent triggering grid swipe if modal is open
+        }
+
+        // --- Grid Swipe (Mobile/Tablet only) ---
+        if (window.innerWidth <= 1024) {
+            if (Math.abs(displacement) > swipeThreshold) {
+                if (displacement > 0) {
+                    changeImageSet(-1);
+                } else {
+                    changeImageSet(1);
+                }
+            }
+        }
+    }
+
+    // Apply touch listeners to modal as well
+    if (modalOverlay) {
+        modalOverlay.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        modalOverlay.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
 });
