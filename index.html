@@ -15,7 +15,7 @@
       content="MegaOne is a highly creative, modern, visually stunning and Bootstrap responsive multipurpose studio and portfolio HTML5 template with ready home page demos."
     />
     <!-- Page Title -->
-    <title>Agency Hotspot | MegaOne HTML5 Template</title>
+    <title>Diasam Smart Solutions</title>
     <!-- Favicon -->
     <link href="agency-hotspot/images/favicon.ico" rel="icon" />
     <!-- Bundle -->
@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="agency-hotspot/css/preloader-logo.css" />
     <link rel="stylesheet" href="agency-hotspot/css/portfolio.css" />
     <link rel="stylesheet" href="agency-hotspot/css/icon-nav.css" />
+    <link rel="stylesheet" href="agency-hotspot/css/responsive-nav.css" />
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="90">
@@ -614,84 +615,88 @@
         <div class="bg-overlay bg-red opacity-3"></div>
         <div class="container expand-container">
           <div class="row">
-            <div class="col-12 col-lg-7 section5left wow" data-wow-delay=".8s">
-              <h4 class="heading text-center text-md-left main-font">
-                Questions?<span class="d-block">How Can we help?</span>
-              </h4>
-              <form
-                class="row contact-form wow fadeInLeft"
-                id="contact-form-data"
-              >
-                <div class="col-12 col-lg-8" id="result"></div>
-                <div class="col-12 col-lg-8">
-                  <input
-                    type="text"
-                    name="userName"
-                    placeholder="Name"
-                    class="form-control"
-                  />
-                  <input
-                    type="text"
-                    name="userPhone"
-                    placeholder="Contact No"
-                    class="form-control"
-                  />
-                  <input
-                    type="email"
-                    name="userEmail"
-                    placeholder="Email"
-                    class="form-control"
-                  />
-                  <input
-                    type="text"
-                    name="userSubject"
-                    placeholder="Subject"
-                    class="form-control"
-                  />
-                  <textarea
-                    class="form-control"
-                    name="userMessage"
-                    rows="6"
-                    placeholder="Type Your Message Here"
-                  ></textarea>
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-medium btn-rounded btn-white rounded-pill w-100 contact_btn main-font"
-                    >Submit Information</a
-                  >
-                </div>
-              </form>
-            </div>
-            <div
-              class="col-12 col-lg-5 section5left wow text-center text-lg-left d-flex align-items-center"
-              data-wow-delay=".8s"
-            >
+            <!-- Left Column: Contact Details (Swapped) -->
+            <div class="col-12 col-lg-5 section5left wow text-center text-lg-left d-flex align-items-center mb-5 mb-lg-0" data-wow-delay=".8s">
               <div class="contact-details wow fadeInRight">
-                <h4 class="heading main-font">Office Location</h4>
-                <p class="text alt-font">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered .
+                <h4 class="heading main-font text-white">Office Location</h4>
+                <p class="text alt-font mb-5 text-white-50">
+                  We are closer than you think, contact us at your convenience with any questions or enquiries. We look forward to serving you!
                 </p>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="https://www.google.com/maps/search/?api=1&query=123+Park+Avenue,+New+York,+United+States" target="_blank" class="btn-glass-contact">
-                        <i aria-hidden="true" class="fas fa-map-marker-alt"></i> 
-                        <span>123 Park Avenue, New York, United States</span>
+                <ul class="list-unstyled contact-list-new">
+                  <li class="wow fadeInUp" data-wow-delay=".2s">
+                    <a href="https://www.google.com/maps/search/?api=1&query=123+Park+Avenue,+New+York,+United+States" target="_blank" class="contact-card-item">
+                        <div class="icon-box"><i aria-hidden="true" class="fas fa-map-marker-alt"></i></div>
+                        <div class="text-content">
+                            <span class="label">Location</span>
+                            <span class="value">123 Park Avenue, New York</span>
+                        </div>
                     </a>
                   </li>
-                  <li>
-                    <a href="tel:+12109714545" class="btn-glass-contact">
-                        <i aria-hidden="true" class="fas fa-phone-volume"></i>
-                        <span>+1 (210) 971-4545</span>
+                  <li class="wow fadeInUp" data-wow-delay=".4s">
+                    <a href="tel:+12109714545" class="contact-card-item">
+                        <div class="icon-box"><i aria-hidden="true" class="fas fa-phone-volume"></i></div>
+                        <div class="text-content">
+                            <span class="label">Call Us</span>
+                            <span class="value">+1 (210) 971-4545</span>
+                        </div>
                     </a>
                   </li>
-                  <li>
-                    <a href="mailto:info@diasamsolutions.com" class="btn-glass-contact">
-                        <i aria-hidden="true" class="fas fa-paper-plane"></i> 
-                        <span>info@diasamsolutions.com</span>
+                  <li class="wow fadeInUp" data-wow-delay=".6s">
+                    <a href="mailto:info@diasamsolutions.com" class="contact-card-item">
+                        <div class="icon-box"><i aria-hidden="true" class="fas fa-paper-plane"></i></div>
+                        <div class="text-content">
+                            <span class="label">Email Us</span>
+                            <span class="value">info@diasamsolutions.com</span>
+                        </div>
                     </a>
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            <!-- Right Column: Form (Swapped) -->
+            <div class="col-12 col-lg-7 section5left wow" data-wow-delay=".8s">
+              <div class="contact-box glass-card p-5">
+                <h4 class="heading text-center text-md-left main-font mb-4">
+                  Questions?<span class="d-block">How Can we help?</span>
+                </h4>
+                <form
+                  class="row contact-form wow fadeInLeft"
+                  id="contact-form-data"
+                >
+                  <div class="col-12" id="result"></div>
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      name="userName"
+                      placeholder="Name"
+                      class="form-control"
+                    />
+                    <input
+                      type="text"
+                      name="userPhone"
+                      placeholder="Contact No"
+                      class="form-control"
+                    />
+                    <input
+                      type="email"
+                      name="userEmail"
+                      placeholder="Email"
+                      class="form-control"
+                    />
+                    <textarea
+                      class="form-control"
+                      name="userMessage"
+                      rows="6"
+                      placeholder="Type Your Message Here"
+                    ></textarea>
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-medium btn-rounded btn-white rounded-pill w-100 contact_btn main-font"
+                      >Submit Information</a
+                    >
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -718,16 +723,16 @@
             </p>
             <div class="modal-images-grid">
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80" alt="Smart Home Control" />
+                <img src="https://images.unsplash.com/photo-1633505650701-6104d0d8e4f3?w=500&q=80" alt="Smart Video Doorbell" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Smart Lighting" />
+                <img src="https://images.unsplash.com/photo-1558089687-e5dbe8d01a0e?w=500&q=80" alt="Indoor Security Camera" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?w=400&q=80" alt="Smart Thermostat" />
+                <img src="https://images.unsplash.com/photo-1545259742-24f9c512d0a4?w=500&q=80" alt="Smart Home Lighting" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Smart Home Interior" />
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80" alt="Smart Home Control Panel" />
               </div>
             </div>
             <div class="modal-features">
@@ -773,16 +778,16 @@
             </p>
             <div class="modal-images-grid">
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Security System" />
+                <img src="https://images.unsplash.com/photo-1633505650701-6104d0d8e4f3?w=500&q=80" alt="Video Doorbell System" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400&q=80" alt="Smart Lock" />
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80" alt="Home Security System" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80" alt="Security Control" />
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Alarm Control Panel" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Alarm System" />
+                <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&q=80" alt="Door & Window Sensors" />
               </div>
             </div>
             <div class="modal-features">
@@ -828,16 +833,16 @@
             </p>
             <div class="modal-images-grid">
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80" alt="Security Camera" />
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&q=80" alt="Outdoor Security Camera" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80" alt="Camera System" />
+                <img src="https://images.unsplash.com/photo-1558089687-e5dbe8d01a0e?w=500&q=80" alt="Spotlight Security Camera" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Monitoring" />
+                <img src="https://images.unsplash.com/photo-1626378805048-b5f2e4e266b0?w=500&q=80" alt="Wireless Security Camera" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Night Vision" />
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80" alt="Indoor Monitoring Camera" />
               </div>
             </div>
             <div class="modal-features">
@@ -883,16 +888,16 @@
             </p>
             <div class="modal-images-grid">
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400&q=80" alt="Door Sensor" />
+                <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&q=80" alt="Contact Sensors" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80" alt="Motion Detector" />
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Security Keypad" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Monitoring Center" />
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80" alt="Complete Alarm System" />
               </div>
               <div class="modal-image-card">
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Window Sensor" />
+                <img src="https://images.unsplash.com/photo-1633505650701-6104d0d8e4f3?w=500&q=80" alt="Video Doorbell Protection" />
               </div>
             </div>
             <div class="modal-features">

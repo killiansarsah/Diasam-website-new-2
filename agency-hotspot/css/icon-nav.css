@@ -117,21 +117,39 @@
     display: none !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
+/* Tablet Landscape - Optimized icon size and placement */
+@media screen and (max-width: 991px) and (orientation: landscape) {
     .icon-nav-container {
-        left: 15px;
+        display: flex !important; /* Ensure visibility */
+        right: auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
         gap: 20px;
-        padding: 25px 10px;
+        padding: 18px 8px;
+        width: auto;
     }
     .icon-nav-item {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         font-size: 18px;
     }
 }
 
-/* Mobile Visibility (Hidden on mobile by default as requested/standard) */
+/* Smaller desktop screens */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .icon-nav-container {
+        right: 10px;
+        gap: 25px;
+        padding: 22px 9px;
+    }
+    .icon-nav-item {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+}
+
+/* Mobile and Tablet Portrait - Hidden */
 @media (max-width: 767px) {
     .icon-nav-container {
         display: none !important;

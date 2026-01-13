@@ -115,16 +115,7 @@ if($_POST)
             $user_Phone = $_POST["userPhone"];
         }
     }
-    if(isset($_POST["userSubject"])) {
-        if(!isset($_POST["userSubject"]))
-        {
-            $output = json_encode(array('type'=>'error', 'text' => 'Input fields are empty!'));
-            die($output);
-        }
-        else {
-            $user_Subject = $_POST["userSubject"];
-        }
-    }
+
     if(isset($_POST["userCity"])) {
         if(!isset($_POST["userCity"]))
         {
@@ -307,9 +298,7 @@ if($_POST)
     if(isset($_POST["userPhone"])) {
         $mail->Body .= "<strong>Phone: </strong>" . $user_Phone . "<br>";
     }
-    if(isset($_POST["userSubject"])) {
-        $mail->Body .= "<strong>Subject: </strong>" . $user_Subject . "<br>";
-    }
+
     if(isset($_POST["userCity"])) {
         $mail->Body .= "<strong>City Or Country: </strong>" . $user_City . "<br>";
     }

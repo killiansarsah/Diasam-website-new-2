@@ -1,0 +1,48 @@
+/* ===================================
+   Responsive Navigation Control
+   Manages sidebar vs mobile navbar visibility
+====================================== */
+
+/* Desktop and Tablet Landscape - Show sidebar navigation */
+@media screen and (min-width: 992px) {
+  .side_nav {
+    display: block !important;
+  }
+  
+  /* Hide mobile navbar on larger screens */
+  .navbar.d-md-none {
+    display: none !important;
+  }
+}
+
+/* Tablet Portrait and Mobile - Hide sidebar, show mobile navbar */
+@media screen and (max-width: 991px) and (orientation: portrait) {
+  .side_nav {
+    display: none !important;
+  }
+  
+  /* Force display of mobile elements regardless of bootstrap classes */
+  .d-md-none {
+    display: flex !important;
+  }
+  
+  /* Fix hamburger icon: Override flex to block so lines stack vertically */
+  .my_nav_tog.d-md-none {
+     display: block !important;
+  }
+  
+  /* Specifically ensure navbar is visible */
+  .navbar.d-md-none {
+    display: flex !important;
+  }
+}
+
+/* Force Sidebar on Tablet Landscape (even if width < 992px) */
+@media screen and (max-width: 991px) and (orientation: landscape) {
+  .side_nav {
+    display: block !important;
+  }
+  .d-md-none {
+    display: none !important;
+  }
+}
