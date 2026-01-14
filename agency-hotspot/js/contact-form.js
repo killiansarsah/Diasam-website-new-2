@@ -48,9 +48,6 @@ $(document).ready(function() {
             dataType: 'json',
             success: function (response) {
                 // Restore Button
-                $btn.text(originalText); // Reset text (stripped tags)
-                // Re-add original text if needed or just specific text
-                // Actually the original text was "Submit Information"
                 $btn.html('Submit Information'); 
                 $btn.removeClass('disabled').css('pointer-events', 'auto');
                 

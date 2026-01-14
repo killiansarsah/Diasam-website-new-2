@@ -262,12 +262,12 @@ if($_POST)
 
     //Server settings
 //    $mail->isSMTP();                                            // Send using SMTP
-//    $mail->Host       = 'smtp.googlemail.com';                    // Set the SMTP server to send through
+//    $mail->Host       = 'smtp.hostinger.com';                   // Set the SMTP server to send through
 //    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-//    $mail->Username   = 'website@gmail.com';                     // SMTP username
-//    $mail->Password   = 'your password';                         // SMTP password
-//    $mail->SMTPSecure = 'TLS';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-//    $mail->Port       = 587;                                    // TCP port to connect to
+//    $mail->Username   = 'info@diasamsolutions.com';             // SMTP username
+//    $mail->Password   = 'ENTER_YOUR_EMAIL_PASSWORD_HERE';       // SMTP password
+//    $mail->SMTPSecure = 'ssl';                                  // Enable SSL encryption
+//    $mail->Port       = 465;                                    // TCP port to connect to
 
     //Recipients
     //Recipients
