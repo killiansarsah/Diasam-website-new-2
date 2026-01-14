@@ -2501,6 +2501,56 @@ svg.slider-shape {
   }
 }
 
+
+
+/* ===================================
+   Responsiveness Fixes (Safari/Apple Check)
+   =================================== */
+
+/* 1. Header Overlap Fix for Mobile/Tablet */
+@media screen and (max-width: 991px) {
+  section {
+      padding-top: 100px !important; /* Offset for fixed header */
+  }
+  .slider-area {
+      height: 100vh; /* Keep banner full height */
+      padding-top: 0 !important;
+  }
+  /* Specific adjustment for Contact section title overlap */
+  .contact-box .heading {
+      margin-top: 20px;
+  }
+}
+
+/* 2. iPad Landscape Sidebar Fix */
+@media screen and (max-width: 991px) and (orientation: landscape) {
+  .side-nav-menu .nav-menu {
+      padding-top: 60px; /* Reduce top padding to fit content */
+  }
+  .side-nav-menu .nav-menu li {
+      margin-bottom: 10px; /* Reduce spacing between items */
+  }
+  .rites-res {
+      bottom: 10px; /* Move copyright text up */
+      font-size: 12px; /* Make text smaller */
+  }
+  /* Fix Brand Logo overlap */
+  .brand-logo {
+      margin-top: 15px;
+  }
+}
+
+/* 3. iPad/Tablet Text Wrapping Fix (Surveillance) */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .feature-item h5.title {
+      font-size: 16px; /* Slightly smaller font to prevent wrap */
+  }
+  .feature-item {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+}
+
 /* ===================================
    Enhanced Contact Section
    =================================== */
