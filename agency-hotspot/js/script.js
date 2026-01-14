@@ -240,6 +240,25 @@ jQuery(function ($) {
         else {
             $('header').removeClass('header-appear');
         }
+
+        // Mobile Scroll Spy for Active Navigation State
+        if ($(window).width() < 1280) {
+            var scrollPosition = $(window).scrollTop() + 150; // Offset for header/visual comfort
+            var sections = ['#home-banner', '#about', '#team', '#portfolio', '#contact'];
+            
+            sections.forEach(function(sectionId) {
+                var section = $(sectionId);
+                if (section.length) {
+                    var top = section.offset().top;
+                    var bottom = top + section.outerHeight();
+                    
+                    if (scrollPosition >= top && scrollPosition < bottom) {
+                        $('.broad .nav-link').removeClass('active');
+                        $('.broad .nav-link[href="' + sectionId + '"]').addClass('active');
+                    }
+                }
+            });
+        }
     });
 
     //scroll to appear
