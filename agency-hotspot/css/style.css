@@ -2522,21 +2522,63 @@ svg.slider-shape {
   }
 }
 
-/* 2. iPad Landscape Sidebar Fix */
-@media screen and (max-width: 991px) and (orientation: landscape) {
+/* 2. iPad Landscape Sidebar Fix (Extended to 1199px for iPad Pro) */
+@media screen and (max-width: 1199px) and (orientation: landscape) {
+  .side_nav {
+      overflow: hidden !important;
+      padding-bottom: 60px; /* Space for bottom logo */
+      left: -210px !important; /* Hide left part (logo), show right part (icons) */
+      width: 280px !important; /* Fixed width */
+  }
+  .side_nav.expand_nav {
+      left: 0 !important; /* slide in fully when expanded */
+  }
   .side-nav-menu .nav-menu {
-      padding-top: 60px; /* Reduce top padding to fit content */
+      padding-top: 20px !important;
+      margin-bottom: 0 !important;
   }
   .side-nav-menu .nav-menu li {
-      margin-bottom: 10px; /* Reduce spacing between items */
+      margin-bottom: 5px !important;
+  }
+  .side-nav-menu .nav-menu li a {
+      font-size: 14px !important;
   }
   .rites-res {
-      bottom: 10px; /* Move copyright text up */
-      font-size: 12px; /* Make text smaller */
+      display: none !important;
   }
-  /* Fix Brand Logo overlap */
+  /* Show Copyright ONLY when expanded */
+  .side_nav.expand_nav .rites-res {
+      display: block !important;
+      font-size: 11px !important;
+      position: absolute;
+      bottom: 60px; /* Above the sticky logo */
+      left: 35px;
+      width: 100%;
+  }
+  .side-nav-menu .side-icons {
+      display: none !important;
+  }
+  /* Fix Logos */
   .brand-logo {
-      margin-top: 15px;
+      display: block !important;
+      margin-top: 10px !important;
+  }
+  .brand-logo img {
+      width: 45% !important;
+      max-width: 120px;
+  }
+  /* Ensure bottom sticky logo is visible but positioned to not overlap */
+  .sticky-logo {
+      display: block !important;
+      position: absolute !important;
+      bottom: 10px !important;
+      right: 15px !important;
+      width: 60px !important; 
+      opacity: 1 !important;
+  }
+  .sticky-logo img {
+      width: 100% !important;
+      height: auto !important;
   }
 }
 
@@ -2562,7 +2604,9 @@ svg.slider-shape {
     position: relative;
     width: 95%;
     margin-left: 5%;
-    height: 100vh;
+    min-height: 100vh; /* Allow growth */
+    height: auto;
+    padding-bottom: 50px; /* Ensure space for scrolling */
 }
 
 /* Glass Card for Form */

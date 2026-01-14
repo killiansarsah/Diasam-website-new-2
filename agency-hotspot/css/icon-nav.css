@@ -118,12 +118,12 @@
 }
 
 /* Tablet Landscape - Optimized icon size and placement */
-@media screen and (max-width: 991px) and (orientation: landscape) {
+@media screen and (max-width: 1199px) and (orientation: landscape) {
     .icon-nav-container {
         display: flex !important; /* Ensure visibility */
-        right: auto;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        right: 10px; /* Keep on right side */
+        left: auto;
+        transform: translateY(-50%);
         gap: 20px;
         padding: 18px 8px;
         width: auto;
