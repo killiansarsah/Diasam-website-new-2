@@ -2487,13 +2487,22 @@ svg.slider-shape {
     margin-bottom: 20px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .slider-area {
-    padding-top: 100px;
+    padding-top: 140px !important;
+    align-items: flex-start !important;
+    display: flex !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+  .section1left {
+    margin-top: 20px !important;
   }
   .slider-area h1 {
     font-size: 28px !important;
     line-height: 1.2;
+    margin-top: 0 !important;
+  }
   }
   .slider-area p {
     font-size: 13px !important;
