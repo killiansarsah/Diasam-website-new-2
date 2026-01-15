@@ -493,7 +493,7 @@ $('.ini-customPrevBtn').click(function () {
         Mouse parallax
  ====================================== */
 
-if ($(window).width() > 991) {
+if ($(window).width() > 1200) {
     $('#home-banner').mousemove(function(e) {
         $('[data-depth]').each(function () {
             var depth = $(this).data('depth');
@@ -604,7 +604,7 @@ function animatedCursor() {
     }
 }
 
-if ($(window).width() > 991) {
+if ($(window).width() > 1200) {
     setTimeout(function () {
         animatedCursor();
     }, 1000);

@@ -650,3 +650,42 @@
 body.modal-open {
   overflow: hidden;
 }
+
+/* Fix for Desktop Laptops with short screens (e.g. 1366x768) */
+@media screen and (min-width: 992px) and (max-height: 850px) {
+  /* Compact the section heading */
+  #about .section-heading {
+    margin-bottom: 10px !important; 
+  }
+
+  /* Compact the service cards */
+  #about .clickable-feature {
+    padding: 20px 20px !important; /* Reduced from 30px */
+    margin-bottom: 15px !important;
+  }
+  
+  #about .clickable-feature h5 {
+    font-size: 1.15rem !important;
+    margin-bottom: 5px !important;
+  }
+  
+  #about .clickable-feature p {
+    font-size: 0.9rem !important;
+    margin-top: 5px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Compact the CTA box */
+  #about .box {
+    margin-top: 5px !important;
+  }
+  
+  #about .box h2 {
+    font-size: 2rem !important;
+  }
+  
+  #about .box p {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+}
