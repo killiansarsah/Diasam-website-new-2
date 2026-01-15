@@ -689,3 +689,48 @@ body.modal-open {
     padding-bottom: 5px !important;
   }
 }
+
+/* Fix for Large Desktop Screens (2K/4K Monitors) */
+@media screen and (min-width: 1600px) and (min-height: 900px) {
+  /* Scale up feature items to fill vertical space */
+  #about .clickable-feature {
+    padding: 40px 30px !important; /* Increased padding */
+    min-height: 380px; /* Force taller cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #about .feature-item i {
+    font-size: 3.5rem; /* Larger icon */
+    margin-bottom: 20px;
+  }
+
+  #about .clickable-feature h5 {
+    font-size: 1.6rem !important; /* Larger headings */
+    margin-bottom: 15px !important;
+  }
+  
+  #about .clickable-feature p {
+    font-size: 1.1rem !important; /* Larger text for better readability */
+    line-height: 1.6 !important;
+  }
+
+  /* Scale up layout spacing */
+  #about .row.pb-3 {
+    padding-bottom: 3rem !important;
+  }
+
+  /* Make CTA box more prominent */
+  #about .box {
+    padding: 40px !important;
+  }
+  
+  #about .box h2 {
+    font-size: 3rem !important;
+  }
+  
+  #about .box p {
+    font-size: 1.2rem !important;
+  }
+}
