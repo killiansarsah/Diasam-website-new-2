@@ -596,6 +596,23 @@
   .col-12:last-child .clickable-feature {
     margin-bottom: 10px !important;
   }
+
+  .clickable-feature {
+    margin-bottom: 15px !important; /* Reduced from 35px */
+    padding: 20px 15px; /* Reduced padding */
+  }
+
+  /* Compact text on mobile */
+  .clickable-feature h5 {
+    font-size: 1.1rem;
+    margin-bottom: 5px !important;
+  }
+  
+  .clickable-feature p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-top: 5px !important;
+  }
 }
 
 /* Tablet / Portrait View Spacing */

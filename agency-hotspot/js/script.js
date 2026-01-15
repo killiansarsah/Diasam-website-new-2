@@ -14,7 +14,7 @@ $(window).on("load", function () {
         Page Piling
     ====================================== */
     if($(window).width() < 1280) {
-        $('.pagedata').removeAttr('id');
+        $('#pagepiling').removeAttr('id');
         $('html, body').css('overflow-y', 'scroll');
         //Team Counter
         $('.count').each(function () {
