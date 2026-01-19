@@ -172,11 +172,13 @@ $(window).on("load", function () {
                     setTimeout(function(){
                         $('.portfolio-subtitle').removeClass('fadeInUp');
                     }, 1500);
-
-                    $('.works-grid').addClass('zoomIn');
-                    setTimeout(function(){
-                        $('.works-grid').removeClass('zoomIn');
-                    }, 1500);
+                    
+                    // Trigger grid items zoom animation
+                    if (window.triggerPortfolioAnimation) {
+                        setTimeout(function() {
+                            window.triggerPortfolioAnimation();
+                        }, 200); // Small delay to ensure grid is rendered
+                    }
                 }
 
                 if(nextIndex == 5) {

@@ -20,14 +20,77 @@
     margin-bottom: 2rem;
 }
 
+/* ZoomIn Animation */
+@-webkit-keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Grid items start hidden for animation on desktop */
+@media (min-width: 1280px) {
+    .grid-item {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+}
+
+/* On mobile/tablet, show items immediately (no PagePiling) */
+@media (max-width: 1279px) {
+    .grid-item {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ZoomIn animation triggers when class is added */
+.grid-item.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 /* PagePiling Section Specifics */
 #portfolio {
-    /* Removed display: flex to avoid PagePiling conflict */
-    /* justify-content: center; removed */
-    background-color: #171717; /* Fallback to prevent transparency */
+    background-color: #171717;
+    overflow: hidden;
+}
+
+/* Ensure content sits above backdrop */
+#portfolio .container {
     position: relative;
-    z-index: 1; /* Ensure stacking context */
-    overflow: hidden; /* Ensure content stays in */
+    z-index: 10;
 }
 
 /* Portfolio Backdrop (Blur & Overlay) */
@@ -68,10 +131,6 @@
 }
 
 /* Ensure content sits above backdrop */
-#portfolio .container {
-    position: relative;
-    z-index: 5;
-}
 
 /* Image Grid */
 .works-grid {
@@ -81,7 +140,6 @@
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    transition: opacity 0.3s ease;
 }
 
 /* Grid Item Card */

@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Functions ---
 
-    function renderGrid(setIndex) {
+    function renderGrid(setIndex, shouldAnimate = false) {
         if (!gridContainer) return;
         
         const images = imageSets[setIndex];
         gridContainer.innerHTML = ''; // Clear current
 
-        images.forEach(img => {
+        images.forEach((img, index) => {
             const item = document.createElement('div');
             item.className = 'grid-item';
             item.onclick = () => openModal(img.id);
@@ -104,6 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             item.appendChild(imageEl);
             gridContainer.appendChild(item);
+            
+            // Add staggered zoom animation only if shouldAnimate is true
+            if (shouldAnimate) {
+                setTimeout(() => {
+                    item.classList.add('zoomIn');
+                }, index * 100); // 100ms delay between each item
+            } else {
+                // Show items immediately without animation
+                item.classList.add('zoomIn');
+            }
         });
 
         // Update active dot
@@ -226,26 +236,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Mobile Swipe Logic for Grid ---
     let touchStartX = 0;
     let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
     const swipeThreshold = 50; // Minimum distance to be considered a swipe
 
     if (gridContainer) {
         gridContainer.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
         }, { passive: true });
 
         gridContainer.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
             handleSwipe();
         }, { passive: true });
     }
 
     function handleSwipe() {
-        const displacement = touchEndX - touchStartX;
+        const displacementX = touchEndX - touchStartX;
+        const displacementY = touchEndY - touchStartY;
         
         // --- Modal Swipe ---
         if (modalInfo.isOpen) {
-            if (Math.abs(displacement) > swipeThreshold) {
-                if (displacement > 0) {
+            if (Math.abs(displacementX) > swipeThreshold) {
+                if (displacementX > 0) {
                     navigateModal(-1); // Swipe Right -> Prev
                 } else {
                     navigateModal(1);  // Swipe Left -> Next
@@ -255,14 +270,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // --- Grid Swipe (Mobile/Tablet only) ---
+        // Only handle horizontal swipes for image set navigation
+        // If vertical swipe is dominant, let pagepiling handle it
         if (window.innerWidth <= 1024) {
-            if (Math.abs(displacement) > swipeThreshold) {
-                if (displacement > 0) {
+            const isHorizontalSwipe = Math.abs(displacementX) > Math.abs(displacementY);
+            
+            if (isHorizontalSwipe && Math.abs(displacementX) > swipeThreshold) {
+                if (displacementX > 0) {
                     changeImageSet(-1);
                 } else {
                     changeImageSet(1);
                 }
             }
+            // If it's a vertical swipe, don't interfere - let pagepiling handle it
         }
     }
 
@@ -270,12 +290,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (modalOverlay) {
         modalOverlay.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
         }, { passive: true });
+
 
         modalOverlay.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
             handleSwipe();
         }, { passive: true });
     }
+
+    // Expose function to trigger portfolio animation from PagePiling
+    window.triggerPortfolioAnimation = function() {
+        // Re-render grid with animation
+        const items = gridContainer.querySelectorAll('.grid-item');
+        items.forEach((item, index) => {
+            item.classList.remove('zoomIn');
+            setTimeout(() => {
+                item.classList.add('zoomIn');
+            }, index * 100);
+        });
+    };
 
 });

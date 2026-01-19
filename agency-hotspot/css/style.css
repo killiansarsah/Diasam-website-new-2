@@ -1121,6 +1121,8 @@ section {
   overflow: hidden;
 }
 
+
+
 #hero-video {
   position: absolute;
   top: 50%;
@@ -1134,15 +1136,18 @@ section {
   object-fit: cover;
 }
 
-.slider-area .bg-overlay,
-.slider-area .container {
-  position: relative;
+.slider-area .bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
-.slider-area .bg-overlay {
-  position: absolute;
-  z-index: 1;
+.slider-area .container {
+  position: relative;
+  z-index: 10;
 }
 
 .slider-image {
@@ -2503,7 +2508,6 @@ svg.slider-shape {
     line-height: 1.2;
     margin-top: 0 !important;
   }
-  }
   .slider-area p {
     font-size: 13px !important;
     margin-bottom: 20px !important;
@@ -2707,6 +2711,11 @@ svg.slider-shape {
     padding-top: 0 !important; 
     margin-left: 0 !important;
     width: 100% !important;
+}
+
+.contact-sec .container {
+    position: relative;
+    z-index: 10;
 }
 
 /* Improved Input Styles */
