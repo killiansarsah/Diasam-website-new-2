@@ -2138,7 +2138,7 @@ svg.slider-shape {
   }
 }
 
-@media screen and (max-width: 991px) and (min-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
   .h1,
   h1 {
     font-size: 58px;
@@ -2169,7 +2169,7 @@ svg.slider-shape {
 
   /* Side Nav - Adjusted for tablet landscape */
   /* Side Nav - Adjusted for tablet landscape ONLY. Desktop uses default styles. */
-  @media screen and (max-width: 991px) and (orientation: landscape) {
+  @media screen and (max-width: 1279px) and (orientation: landscape) {
     .side_nav {
       width: 20%; /* Reduced from 25% to fit better on tablets */
       left: 0 !important; /* Fully visible from left edge */
@@ -2239,7 +2239,7 @@ svg.slider-shape {
 }
 
 /* Tablet Portrait and Mobile - Use floating navbar */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1279px) {
   body {
     text-align: center;
     overflow-y: hidden !important;
@@ -2521,7 +2521,7 @@ svg.slider-shape {
    =================================== */
 
 /* 1. Header Overlap Fix for Mobile/Tablet */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1279px) {
   section {
       padding-top: 100px !important; /* Offset for fixed header */
   }
