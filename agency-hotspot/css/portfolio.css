@@ -85,9 +85,12 @@
 }
 
 /* Grid Item Card */
+/* Grid Item Card */
 .grid-item {
     position: relative;
-    aspect-ratio: 16/10;
+    width: 100%;
+    padding-bottom: 62.5%; /* 16:10 Aspect Ratio (10 / 16 = 0.625) */
+    height: 0;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -97,6 +100,9 @@
 }
 
 .grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
