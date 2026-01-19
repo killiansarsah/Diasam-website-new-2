@@ -184,6 +184,11 @@ $(window).on("load", function () {
                     setTimeout(function(){
                         $('.section5left').removeClass('slideInLeft');
                     }, 1800);
+
+                    $('.section5right').addClass('slideInRight');
+                    setTimeout(function(){
+                        $('.section5right').removeClass('slideInRight');
+                    }, 1800);
                 }
             },
         });
