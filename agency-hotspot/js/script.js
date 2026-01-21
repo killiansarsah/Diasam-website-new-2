@@ -372,11 +372,19 @@ $(window).on('scroll', function () {
 });
 
 $('.overlay-body').on('click', function(e) {
+    // Close desktop side menu
     $("#close_nav").removeClass("close_nav");
     $(".side_nav").removeClass("expand_nav");
     $("#my_tog").removeClass("close_nav");
     $("#close_nav").attr("id","my_tog");
+    
+    // Close mobile menu
+    $('.broad').removeClass('broad-nav');
+    $('body').removeClass('show-modal');
+    
+    // Hide overlay and restore navigation
     $(".overlay-body").removeClass('show_body_overlay');
+    $('#pp-nav').show();
     $('.icon-nav-container').removeClass('nav-hidden');
 });
 
