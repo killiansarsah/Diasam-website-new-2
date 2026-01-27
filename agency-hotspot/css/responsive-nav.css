@@ -5,7 +5,7 @@
 
 /* Desktop and Tablet Landscape - Sidebar hidden by default, hamburger visible */
 @media screen and (min-width: 1280px) {
-  /* Sidebar is hidden by default (controlled by style.css left: -30%) */
+  /* Sidebar is hidden by default (controlled by style.css left: -20%) */
   /* Hamburger menu should be visible to toggle the sidebar */
   /* Icon navigation should be visible on the right side */
 }

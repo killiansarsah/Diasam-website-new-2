@@ -1095,6 +1095,11 @@ section {
   position: absolute;
   bottom: 20px; /* Moved slightly more to the bottom */
   padding-left: 35px;
+  display: none; /* Hidden by default when sidebar is closed */
+}
+
+.side_nav.expand_nav .rites-res {
+  display: block; /* Show when sidebar is expanded */
 }
 
 .broad .rites-res {
@@ -2120,9 +2125,6 @@ svg.slider-shape {
   }
 
   /* Side Nav */
-  .my_tog {
-    padding: 20px 5px;
-  }
   .sticky-logo {
     display: none !important;
   }
@@ -2209,10 +2211,6 @@ svg.slider-shape {
     }
   }
   
-  .my_tog {
-    padding: 20px 0;
-    margin-right: 8px;
-  }
   .sticky-logo {
     display: none !important;
   }

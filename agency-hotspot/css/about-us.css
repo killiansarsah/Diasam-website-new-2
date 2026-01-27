@@ -103,6 +103,8 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  max-height: 85vh; /* Prevent overflow on shorter screens */
+  overflow-y: auto; /* Allow scrolling if content is too tall */
 }
 
 .company-info-section {
@@ -501,6 +503,10 @@
     padding: 20px 25px;
   }
 
+  .company-info-container {
+    max-height: 80vh; /* Prevent overflow on medium-short screens */
+  }
+
   .company-heading {
     font-size: clamp(1.3rem, 2.2vw, 1.6rem);
     margin-bottom: 10px;
@@ -522,6 +528,10 @@
 @media (max-height: 720px) {
   .about-us-left {
     padding: 12px 20px;
+  }
+
+  .company-info-container {
+    max-height: 75vh; /* Tighter constraint on very short screens */
   }
 
   .company-heading {
