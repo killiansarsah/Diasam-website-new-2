@@ -33,8 +33,14 @@
 .icon-nav-item {
     width: 44px;
     height: 44px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     color: rgba(0, 0, 0, 0.45); /* Darker icons for light bg */
     background: transparent;
@@ -74,6 +80,7 @@
     left: 100%;
     margin-left: 20px;
     background: rgba(255, 255, 255, 0.98);
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     color: #232728;
     padding: 6px 14px;
@@ -120,6 +127,8 @@
 /* Tablet Landscape - Optimized icon size and placement */
 @media screen and (max-width: 1199px) and (orientation: landscape) {
     .icon-nav-container {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
         display: flex !important; /* Ensure visibility */
         right: 10px; /* Keep on right side */
         left: auto;

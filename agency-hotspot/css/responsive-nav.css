@@ -3,16 +3,11 @@
    Manages sidebar vs mobile navbar visibility
 ====================================== */
 
-/* Desktop and Tablet Landscape - Show sidebar navigation */
+/* Desktop and Tablet Landscape - Sidebar hidden by default, hamburger visible */
 @media screen and (min-width: 1280px) {
-  .side_nav {
-    display: block !important;
-  }
-  
-  /* Hide mobile navbar on larger screens */
-  .navbar.d-md-none {
-    display: none !important;
-  }
+  /* Sidebar is hidden by default (controlled by style.css left: -30%) */
+  /* Hamburger menu should be visible to toggle the sidebar */
+  /* Icon navigation should be visible on the right side */
 }
 
 /* Tablet Portrait and Mobile - Hide sidebar, show mobile navbar */
@@ -23,6 +18,8 @@
   
   /* Force display of mobile elements regardless of bootstrap classes */
   .d-md-none {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
   }
   
@@ -33,6 +30,8 @@
   
   /* Specifically ensure navbar is visible */
   .navbar.d-md-none {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
   }
 }

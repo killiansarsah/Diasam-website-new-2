@@ -167,8 +167,14 @@
 }
 
 .service-modal.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -222,8 +228,14 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   z-index: 10;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -238,8 +250,14 @@
 
 /* Modal Header - Horizontal Layout */
 .modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -253,11 +271,19 @@
   background: radial-gradient(circle at center, rgba(30, 115, 190, 0.25) 0%, rgba(20, 20, 20, 0.6) 100%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin: 0 35px 0 0; /* Right margin instead of bottom */
   position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex-negative: 0;
   flex-shrink: 0;
   box-shadow: 0 0 40px rgba(30, 115, 190, 0.35),
               inset 0 0 20px rgba(255, 255, 255, 0.05);
@@ -346,7 +372,9 @@
 
 /* Modal Images Grid */
 .modal-images-grid {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 15px 1fr;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   margin: 0 auto 30px;
@@ -377,7 +405,9 @@
 
 /* Modal Features List */
 .modal-features {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 12px 1fr;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   max-width: 800px;
@@ -385,7 +415,11 @@
 }
 
 .modal-features .feature-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.03);
   padding: 20px 24px;
@@ -701,8 +735,15 @@ body.modal-open {
   #about .clickable-feature {
     padding: 40px 30px !important; /* Increased padding */
     min-height: 380px; /* Force taller cards */
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
   

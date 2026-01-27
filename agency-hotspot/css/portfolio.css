@@ -141,7 +141,9 @@
 
 /* Image Grid */
 .works-grid {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1200px;
@@ -195,8 +197,14 @@
 
 /* Navigation Controls Container */
 .nav-controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     gap: 30px;
     margin-top: 30px;
@@ -207,14 +215,21 @@
 /* Prev/Next Buttons */
 .nav-btn-bottom {
     background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -238,11 +253,14 @@
 
 /* Dot Indicators */
 .nav-dots {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 12px;
     background: rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
     border-radius: 30px;
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
 
@@ -276,9 +294,16 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
@@ -294,8 +319,14 @@
     position: relative;
     max-width: 90%;
     max-height: 90vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -328,8 +359,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     cursor: pointer;
     line-height: 1;
@@ -347,6 +384,7 @@
     top: 50%;
     transform: translate3d(0, -50%, 0);
     background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -354,8 +392,14 @@
     height: 65px;
     border-radius: 50%;
     font-size: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -483,7 +527,11 @@
 
 /* 1. Glass Morphism Buttons (Location, Phone, Email) */
 .btn-glass-contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 15px;
     padding: 15px 25px;

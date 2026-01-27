@@ -1207,7 +1207,11 @@ section {
 }
 
 .slider-area {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
@@ -2524,7 +2528,11 @@ svg.slider-shape {
 @media screen and (max-width: 480px) {
   .slider-area {
     padding-top: 140px !important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
     align-items: flex-start !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
     height: auto !important;
     min-height: 100vh;
@@ -2759,6 +2767,7 @@ svg.slider-shape {
     color: #ffffff !important;
     font-size: 16px;
     transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
 
