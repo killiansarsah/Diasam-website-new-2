@@ -94,6 +94,10 @@
     overflow: hidden;
 }
 
+#portfolio .section-wrapper {
+    overflow: hidden !important; /* Force no scrollbar */
+}
+
 /* Ensure content sits above backdrop */
 #portfolio .container {
     position: relative;
