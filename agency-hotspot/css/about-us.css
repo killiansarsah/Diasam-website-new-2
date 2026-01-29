@@ -59,8 +59,24 @@
   padding-top: 0.5rem;
 }
 
-.about-us-section .section-wrapper {
-  overflow: hidden !important; /* Definitively remove scrollbar */
+/* Desktop only: Force no scrollbar */
+@media (min-width: 1200px) {
+  .about-us-section .section-wrapper {
+    overflow: hidden !important;
+  }
+}
+
+/* Mobile/Tablet: Allow scrolling */
+@media (max-width: 1199px) {
+  .about-us-section .section-wrapper {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  .company-info-container {
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
 
 /* ===================================
@@ -415,9 +431,25 @@
   }
 
   .team-member-card {
-    height: 38vh;
+    height: 38vh; /* Use vh on mobile instead of svh */
     min-height: 250px;
     max-height: 450px;
+  }
+  
+  /* Revert svh to vh on mobile for better compatibility */
+  .company-heading {
+    font-size: clamp(1.4rem, 4vh, 2.4rem);
+    margin-bottom: 1.2vh;
+  }
+  
+  .company-paragraph {
+    font-size: clamp(1.1rem, 2.3vh, 1.45rem);
+    line-height: clamp(1.5, 2.8vh, 1.9);
+    margin-bottom: 2vh;
+  }
+  
+  .team-member-card {
+    margin-bottom: 1vh;
   }
 }
 

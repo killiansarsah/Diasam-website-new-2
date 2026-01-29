@@ -94,8 +94,19 @@
     overflow: hidden;
 }
 
-#portfolio .section-wrapper {
-    overflow: hidden !important; /* Force no scrollbar */
+/* Desktop only: Force no scrollbar */
+@media (min-width: 1200px) {
+    #portfolio .section-wrapper {
+        overflow: hidden !important;
+    }
+}
+
+/* Mobile/Tablet: Allow scrolling */
+@media (max-width: 1199px) {
+    #portfolio .section-wrapper {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
 }
 
 /* Ensure content sits above backdrop */

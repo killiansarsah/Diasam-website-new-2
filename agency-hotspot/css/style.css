@@ -595,13 +595,14 @@ section {
 .expand_nav .brand-logo {
     display: block;
 }
+
 /* Bottom logo in the visible strip (Collapsed state) */
 .sticky-logo {
   display: block !important;
   position: absolute;
   bottom: 35px;
   left: 22.25vw; /* Perfectly anchored to the strip center */
-  transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0); /* Center horizontally */
   margin: 0 !important;
   padding: 0 !important;
   width: 44px;
@@ -619,6 +620,25 @@ section {
 .sticky-logo img {
     width: 100%;
     height: auto;
+    display: block;
+}
+
+/* Mobile Hamburger Icon Base Styles */
+.my_nav_tog {
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 9999;
+}
+
+.my_nav_tog span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000000; /* Black lines for visibility */
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 .my_nav_tog:hover span:nth-child(1) {
@@ -1546,6 +1566,20 @@ svg.slider-shape {
     backface-visibility: hidden;
 }
 
+/* Mobile/Tablet: Stack sections normally (no PagePiling) */
+@media (max-width: 1199px) {
+    .section {
+        position: relative !important; /* Stack sections vertically */
+        height: auto !important; /* Let content determine height */
+        min-height: 100vh; /* Ensure each section is at least full screen */
+    }
+    
+    .section-wrapper {
+        min-height: 100vh; /* Ensure wrapper fills at least one screen */
+        padding: 60px 0 40px 0; /* Add comfortable padding for mobile */
+    }
+}
+
 /* Defensive Safe Zone Wrapper */
 .section-wrapper {
     position: relative;
@@ -1587,6 +1621,14 @@ svg.slider-shape {
     width: 95%;
     margin-left: 5%;
     pointer-events: auto; /* Buttons inside slider-area need clicks */
+}
+
+/* Mobile: Remove sidebar offset since there's no sidebar */
+@media (max-width: 1199px) {
+    .section > .slider-area {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
 
 .section-wrapper::-webkit-scrollbar {
@@ -2720,29 +2762,100 @@ svg.slider-shape {
   .side-nav-menu .side-icons {
       display: none !important;
   }
-  /* Fix Logos */
+  /* Fix Logos - Ensure visibility and alignment */
   .brand-logo {
       display: block !important;
       margin-top: 10px !important;
+      text-align: center;
   }
   .brand-logo img {
       width: 45% !important;
       max-width: 120px;
+      margin: 0 auto;
+      display: block;
   }
-  /* Ensure bottom sticky logo is visible but positioned to not overlap */
+  /* Sticky logo - Aligned with icon navigation and hamburger */
   .sticky-logo {
       display: block !important;
       position: absolute !important;
-      bottom: 10px !important;
-      right: 15px !important;
-      width: 60px !important; 
+      bottom: 35px !important;
+      left: 245px !important; /* Same as icon nav and hamburger */
+      transform: translateX(-50%) !important; /* Center it */
+      width: 44px !important; 
       opacity: 1 !important;
+      visibility: visible !important;
+      margin: 0 !important;
+      padding: 0 !important;
   }
   .sticky-logo img {
       width: 100% !important;
       height: auto !important;
+      display: block !important;
+  }
+  /* Hamburger icon alignment */
+  .side_nav .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 13px; /* Align with icon navigation and sticky logo */
+      z-index: 20003;
+  }
+  /* Align hamburger toggle with icon nav and sticky logo */
+  .my_tog {
+      position: absolute !important;
+      top: 20px !important;
+      left: 245px !important; /* Same as icon navigation center */
+      transform: translateX(-50%) !important; /* Center it */
+      z-index: 20003 !important;
+  }
+  /* Center sidebar content when expanded */
+  .side_nav.expand_nav .side-nav-menu {
+      text-align: center;
+  }
+  .side_nav.expand_nav .nav-menu {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
   }
 }
+
+/* 2.5 Mobile Portrait - Hide Desktop Sidebar Completely */
+@media screen and (max-width: 1199px) and (orientation: portrait) {
+  .side_nav {
+      display: none !important;
+  }
+  
+  .icon-nav-container {
+      display: none !important;
+  }
+  
+  /* Ensure mobile navbar is visible */
+  .navbar.d-md-none {
+      display: flex !important;
+  }
+  
+  .my_nav_tog {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+  }
+}
+
+/* 2.6 Small Mobile Devices - Extra Safety */
+@media screen and (max-width: 767px) {
+  .side_nav {
+      display: none !important;
+  }
+  
+  .icon-nav-container {
+      display: none !important;
+  }
+  
+  .my_nav_tog {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+  }
+}
+
 
 /* 3. iPad/Tablet Text Wrapping Fix (Surveillance) */
 @media (min-width: 768px) and (max-width: 1280px) {

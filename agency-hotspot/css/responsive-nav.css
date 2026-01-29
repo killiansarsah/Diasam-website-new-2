@@ -11,7 +11,7 @@
 }
 
 /* Tablet Portrait and Mobile - Hide sidebar, show mobile navbar */
-@media screen and (max-width: 1200px) and (orientation: portrait) {
+@media screen and (max-width: 1199px) {
   .side_nav {
     display: none !important;
   }
@@ -24,8 +24,10 @@
   }
   
   /* Fix hamburger icon: Override flex to block so lines stack vertically */
-  .my_nav_tog.d-md-none {
+  .my_nav_tog {
      display: block !important;
+     visibility: visible !important;
+     opacity: 1 !important;
   }
   
   /* Specifically ensure navbar is visible */
@@ -36,12 +38,22 @@
   }
 }
 
-/* Force Sidebar on Tablet Landscape (even if width < 992px) */
-@media screen and (max-width: 1200px) and (orientation: landscape) {
+/* Force Sidebar on Tablet Landscape (1024px-1199px) - Hide Mobile Nav */
+@media screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {
   .side_nav {
     display: block !important;
   }
+  
+  /* CRITICAL: Hide mobile navbar on tablet landscape */
   .d-md-none {
+    display: none !important;
+  }
+  
+  .navbar.d-md-none {
+    display: none !important;
+  }
+  
+  .my_nav_tog {
     display: none !important;
   }
 }
