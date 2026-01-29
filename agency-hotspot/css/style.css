@@ -59,8 +59,10 @@ body {
   line-height: 25px;
   width: 100%;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-px-font-smoothing: grayscale;
+  /* Force Edge to match Chrome's rendering exactly */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
 }
 a,
 input,
@@ -1557,7 +1559,7 @@ svg.slider-shape {
     overflow-x: hidden;
     scroll-behavior: smooth;
     /* Extra generous padding for safe zone (30-80px fluid) */
-    padding: clamp(30px, 7vh, 100px) 0;
+    padding: clamp(30px, 7svh, 100px) 0;
     box-sizing: border-box;
     scrollbar-gutter: stable; /* Prevents shifting when scrollbar appears */
     scrollbar-width: thin;

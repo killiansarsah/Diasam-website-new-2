@@ -33,14 +33,14 @@
 .about-section-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
   color: #ffffff;
   text-shadow: 0 4px 8px rgba(0,0,0,0.4);
   margin-bottom: 0;
   margin-top: 0;
   letter-spacing: 1px;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .about-section-title::after {
@@ -55,8 +55,12 @@
 }
 
 .about-us-section .section-heading {
-  margin-bottom: 1rem !important;
-  padding-top: 1.5rem;
+  margin-bottom: 0.5rem !important;
+  padding-top: 0.5rem;
+}
+
+.about-us-section .section-wrapper {
+  overflow: hidden !important; /* Definitively remove scrollbar */
 }
 
 /* ===================================
@@ -65,6 +69,10 @@
 
 .about-us-section {
   overflow: hidden;
+  /* Normalize text rendering to match Chrome exactly */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .about-us-section .container {
@@ -103,22 +111,22 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-height: 85vh; /* Prevent overflow on shorter screens */
-  overflow-y: auto; /* Allow scrolling if content is too tall */
+  max-height: 90vh; 
+  overflow: hidden; /* Definitively remove internal scrollbar */
 }
 
 .company-info-section {
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced from 20px */
 }
 
-/* Company Headings */
+/* Company Headings - Using svh for cross-browser math stability */
 .company-heading {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(1.5rem, 4.5vh, 2.5rem);
+  font-size: clamp(1.4rem, 4svh, 2.4rem); 
   color: var(--about-text);
   letter-spacing: 1px;
-  margin-bottom: 2vh;
+  margin-bottom: 1.2svh;
   text-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 
@@ -126,13 +134,13 @@
   margin-top: 15px;
 }
 
-/* Company Paragraphs */
+/* Company Paragraphs - Using svh for cross-browser math stability */
 .company-paragraph {
   font-family: 'Roboto', sans-serif;
-  font-size: clamp(1rem, 2.2vh, 1.35rem);
-  line-height: clamp(1.4, 2.8vh, 1.85);
+  font-size: clamp(1.1rem, 2.3svh, 1.45rem); 
+  line-height: clamp(1.5, 2.8svh, 1.9); 
   text-align: justify;
-  margin-bottom: 2.5vh;
+  margin-bottom: 2svh;
   color: var(--about-text-secondary);
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
@@ -166,7 +174,7 @@
 
 .team-main-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 3.5vh, 2rem); /* Fluid scaling */
   font-weight: 600;
   color: white;
   letter-spacing: 1px;
@@ -238,7 +246,7 @@
   box-shadow: var(--card-shadow);
   transition: all 0.4s ease;
   position: relative;
-  height: clamp(280px, 45vh, 500px);
+  height: clamp(260px, 44svh, 480px); 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,7 +254,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin-bottom: 1vh;
+  margin-bottom: 1svh;
 }
 
 .card-image-section {
@@ -365,49 +373,37 @@
   }
 
   .company-paragraph {
-    font-size: 1.5rem;
+    
     line-height: 2;
     margin-bottom: 35px;
   }
 }
 
-/* Standard Desktop (1200px - 1599px) */
 @media (min-width: 1200px) and (max-width: 1599px) {
   .about-us-left {
-    padding: 35px 25px;
+    padding: clamp(15px, 3vh, 35px) clamp(10px, 2vw, 25px);
   }
 
   .company-heading {
-    font-size: 2.3rem;
-    margin-bottom: 20px;
+    margin-bottom: clamp(5px, 1.5vh, 20px);
   }
 
   .company-paragraph {
-    font-size: 1.35rem;
-    line-height: 1.9;
-    margin-bottom: 30px;
-  }
-}
-
-/* Desktop Small / Laptop (1280px - 1599px) */
-@media (min-width: 1280px) and (max-width: 1599px) {
-  .about-us-left {
-    padding: 35px 20px;
+    margin-bottom: clamp(10px, 2vh, 30px);
   }
 
   .team-member-card {
-    height: 50vh;
-    min-height: 380px;
-    max-height: 550px;
+    height: 42vh;
+    min-height: 250px;
+    max-height: 480px;
   }
 }
 
 /* Tablet Portrait and Mobile (≤1279px) - Matches PagePiling breakpoint */
-@media (max-width: 1279px) {
+@media (max-width: 1199px) {
   .about-us-left {
     text-align: center;
-    padding: 25px 20px;
-    min-height: auto;
+    padding: 20px;
   }
 
   .company-paragraph {
@@ -415,14 +411,13 @@
   }
 
   .about-us-right {
-    min-height: auto;
-    padding: 25px 20px;
+    padding: 20px;
   }
 
   .team-member-card {
-    height: 45vh;
-    min-height: 350px;
-    max-height: 500px;
+    height: 38vh;
+    min-height: 250px;
+    max-height: 450px;
   }
 }
 
@@ -520,23 +515,48 @@
 }
 
 /* ===================================
-    PRINT STYLES
+    VERTICAL HEIGHT OPTIMIZATIONS
+    Ensures everything fits on 14-inch laptops without scrolling
 ====================================== */
 
-@media print {
-  .about-us-section {
-    page-break-inside: avoid;
+@media (max-height: 850px) {
+  .about-us-section .section-wrapper {
+    padding: clamp(15px, 3svh, 35px) 0 !important; /* Minimized padding */
   }
 
-  .team-cards-mobile {
-    display: none;
+  .team-header {
+    margin-bottom: 12px;
   }
 
-  .team-cards-desktop {
-    display: block !important;
+  .company-info-section:nth-child(2) .company-heading {
+    margin-top: 10px;
+  }
+}
+
+@media (max-height: 720px) {
+  .company-heading {
+    font-size: 1.45rem; 
+  }
+  
+  .company-paragraph {
+    font-size: 1.05rem; 
+    line-height: 1.6;
   }
 
-  .carousel-indicators {
-    display: none;
+  .about-section-title {
+    font-size: 2rem; 
+  }
+
+  .team-main-title {
+    font-size: 1.4rem;
+  }
+  
+  .team-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .team-member-card {
+    height: 40svh;
+    min-height: 250px;
   }
 }
