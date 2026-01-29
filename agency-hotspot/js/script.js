@@ -13,7 +13,7 @@ $(window).on("load", function () {
     /* ===================================
         Page Piling
     ====================================== */
-    if($(window).width() < 1280) {
+    if (window.matchMedia("(max-width: 1200px)").matches) {
         $('#pagepiling').removeAttr('id');
         $('html, body').css('overflow-y', 'scroll');
         //Team Counter
@@ -50,12 +50,13 @@ $(window).on("load", function () {
             direction: 'vertical',
             sectionsColor: ['#171717', '#171717', '#171717', '#171717', '#171717'],
             anchors: ['home-banner', 'about', 'team', 'portfolio', 'contact'],
-            scrollingSpeed: 500,
+            scrollingSpeed: 750,
             menu: '#menu',
-            easing: 'linear',
+            easing: 'swing',
             loopBottom: false,
             loopTop: false,
             css3: true,
+            verticalCentered: false, // Disable PP centering to use our Flexbox Safe Zone
             navigation: {
                 'bulletsColor': '#535353',
                 'position': 'left',
@@ -200,7 +201,7 @@ $(window).on("load", function () {
         WOW Animation
 ====================================== */
 
-    if ($(window).width() > 991) {
+    if (window.matchMedia("(min-width: 992px)").matches) {
         var wow = new WOW({
             boxClass: 'wow',
             animateClass: 'animated',
@@ -249,7 +250,7 @@ jQuery(function ($) {
         }
 
         // Mobile Scroll Spy for Active Navigation State
-        if ($(window).width() < 1280) {
+        if (window.matchMedia("(max-width: 1200px)").matches) {
             var scrollPosition = $(window).scrollTop() + 150; // Offset for header/visual comfort
             var sections = ['#home-banner', '#about', '#team', '#portfolio', '#contact'];
             
@@ -354,7 +355,7 @@ $('.broad ul li a').click(function () {
 
 $(window).on('scroll', function () {
 
-    if($(window).width() <= 767){
+    if (window.matchMedia("(max-width: 767px)").matches) {
         if ($(this).scrollTop() > 50) {
             $('#home').addClass('fixed-top')
             $('#home').addClass('fix-top')
@@ -508,7 +509,7 @@ $('.ini-customPrevBtn').click(function () {
         Mouse parallax
  ====================================== */
 
-if ($(window).width() > 1200) {
+if (window.matchMedia("(min-width: 1201px)").matches) {
     $('#home-banner').mousemove(function(e) {
         $('[data-depth]').each(function () {
             var depth = $(this).data('depth');
@@ -619,7 +620,7 @@ function animatedCursor() {
     }
 }
 
-if ($(window).width() > 1200) {
+if (window.matchMedia("(min-width: 1201px)").matches) {
     setTimeout(function () {
         animatedCursor();
     }, 1000);

@@ -115,10 +115,10 @@
 .company-heading {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.5rem, 4.5vh, 2.5rem);
   color: var(--about-text);
   letter-spacing: 1px;
-  margin-bottom: 15px;
+  margin-bottom: 2vh;
   text-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 
@@ -129,10 +129,10 @@
 /* Company Paragraphs */
 .company-paragraph {
   font-family: 'Roboto', sans-serif;
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  line-height: 1.85;
+  font-size: clamp(1rem, 2.2vh, 1.35rem);
+  line-height: clamp(1.4, 2.8vh, 1.85);
   text-align: justify;
-  margin-bottom: 20px;
+  margin-bottom: 2.5vh;
   color: var(--about-text-secondary);
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
@@ -238,9 +238,7 @@
   box-shadow: var(--card-shadow);
   transition: all 0.4s ease;
   position: relative;
-  height: 55vh;
-  min-height: 420px;
-  max-height: 620px;
+  height: clamp(280px, 45vh, 500px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -248,7 +246,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin-bottom: 8px;
+  margin-bottom: 1vh;
 }
 
 .card-image-section {
@@ -497,68 +495,6 @@
   }
 }
 
-/* Shorter screens */
-@media (max-height: 850px) {
-  .about-us-left {
-    padding: 20px 25px;
-  }
-
-  .company-info-container {
-    max-height: 80vh; /* Prevent overflow on medium-short screens */
-  }
-
-  .company-heading {
-    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-    margin-bottom: 10px;
-  }
-
-  .company-paragraph {
-    font-size: clamp(1rem, 1.4vw, 1.15rem);
-    line-height: 1.65;
-    margin-bottom: 15px;
-  }
-
-  .team-member-card {
-    height: 50vh;
-    min-height: 350px;
-    max-height: 500px;
-  }
-}
-
-@media (max-height: 720px) {
-  .about-us-left {
-    padding: 12px 20px;
-  }
-
-  .company-info-container {
-    max-height: 75vh; /* Tighter constraint on very short screens */
-  }
-
-  .company-heading {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-  }
-
-  .company-paragraph {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-
-  .company-info-section:nth-child(2) .company-heading {
-    margin-top: 10px;
-  }
-
-  .team-member-card {
-    height: 45vh;
-    min-height: 300px;
-    max-height: 400px;
-  }
-
-  .team-header {
-    margin-bottom: 15px;
-  }
-}
 
 /* ===================================
     ACCESSIBILITY ENHANCEMENTS

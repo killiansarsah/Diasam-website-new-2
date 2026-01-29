@@ -47,6 +47,10 @@
     General
 ====================================== */
 
+* {
+  box-sizing: border-box !important;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -55,6 +59,8 @@ body {
   line-height: 25px;
   width: 100%;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-px-font-smoothing: grayscale;
 }
 a,
 input,
@@ -470,14 +476,19 @@ section {
 ====================================== */
 
 .my_tog {
-  padding: 10px;
-  margin-top: 30px;
-  margin-right: 20px;
   cursor: pointer;
-  transition: 0.8s ease;
+  transition: 0.4s ease;
   display: block;
-  float: right;
-  z-index: 12;
+  z-index: 20002;
+  position: absolute;
+  top: 35px;
+  /* Centering in the 5.5vw strip anchored from the LEFT:
+     Start of strip = 25vw - 5.5vw = 19.5vw.
+     Center of strip = 19.5vw + (5.5vw / 2) = 22.25vw. */
+  left: 22.25vw; 
+  transform: translate3d(-50%, 0, 0); 
+  width: 26px;
+  height: 26px;
 }
 
 .my_tog:hover span:first-child {
@@ -524,57 +535,88 @@ section {
 .side_nav {
   display: block;
   background-color: white;
-  width: 25%;
+  width: 25vw; /* Using vw for viewport-consistent math */
   float: left;
   height: auto;
-  box-shadow: 1px 1px 10px #535353;
-  transition: 0.5s ease;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
 }
 
 .side_nav {
   position: fixed;
   top: 0;
-  left: -20%;
-  z-index: 11;
+  left: -19.5vw;
+  z-index: 20000;
   bottom: 0;
+  overflow: visible !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px; /* Rendering stability hint */
+  will-change: left;
+  background-color: white;
+  width: 25vw;
 }
 
 .side_nav.expand_nav {
-  z-index: 11111;
-  left: 0;
+  z-index: 20001;
+  left: 0 !important;
 }
 
+.side_menu {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 0;
+}
+
+.my-sticky-nav {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Expanded state logo (Inside white drawer) */
 .brand-logo {
   color: black;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
-  display: inline-block;
-  padding-top: 0;
+  display: none;
   margin-top: 30px;
   padding-left: 30px;
   font-size: 30px;
   transition: 0.6s ease;
 }
 
+/* Show branding only when expanded */
+.expand_nav .brand-logo {
+    display: block;
+}
+/* Bottom logo in the visible strip (Collapsed state) */
 .sticky-logo {
+  display: block !important;
   position: absolute;
-  right: -5px;
-  bottom: 15px;
+  bottom: 35px;
+  left: 22.25vw; /* Perfectly anchored to the strip center */
+  transform: translate3d(-50%, 0, 0);
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 44px;
+  z-index: 20002;
+  opacity: 1;
+  visibility: visible !important;
 }
 
-.brand-logo span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
+/* Hide sticky logo when menu is expanded to avoid overlap */
+.expand_nav .sticky-logo {
+    opacity: 0;
+    visibility: hidden;
 }
 
-.my_nav_tog span {
-  display: block;
-  margin-bottom: 3px;
-  height: 2px;
-  background-color: #444444;
-  width: 20px;
-  transition: all 0.3s ease;
+.sticky-logo img {
+    width: 100%;
+    height: auto;
 }
 
 .my_nav_tog:hover span:nth-child(1) {
@@ -632,13 +674,13 @@ section {
 .line:after {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border: 1px solid rgba(255, 255, 255, 0);
-  bottom: 0;
+  border-bottom: 4px solid transparent; /* Thicker underline base */
+  bottom: -4px; /* Lower position */
   content: " ";
   display: block;
   position: relative;
-  -webkit-transition: all 280ms ease-in-out;
-  transition: all 280ms ease-in-out;
+  -webkit-transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
   width: 0;
 }
 
@@ -647,8 +689,6 @@ section {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-color: #71911b;
-  -webkit-transition: width 350ms ease-in-out;
-  transition: width 350ms ease-in-out;
   width: 100%;
 }
 
@@ -802,25 +842,29 @@ section {
   top: 0;
   bottom: 0;
   right: 0;
-  left: 100%; /* Completely off-screen to the right by default */
-  width: 100%; /* Default width (overridden in active state) */
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  left: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85); /* Increased transparency */
+  backdrop-filter: blur(25px) saturate(160%); /* Enhanced blur */
+  -webkit-backdrop-filter: blur(25px) saturate(160%);
   z-index: 111111;
   visibility: hidden;
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
+  /* Rendering optimizations for Edge/Brave */
+  will-change: transform, opacity, backdrop-filter;
+  transform: translateZ(0); 
 }
 
 /* Active State for Side Menu (Visible Side-Drawer) */
 .broad-nav {
-  left: 20%; /* Opens from right, covering 80% of screen */
+  left: 20% !important; 
   visibility: visible;
   opacity: 1;
-  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-overflow-scrolling: touch; /* Momentum scroll for touch devices */
 }
 
 @media screen and (max-width: 480px) {
@@ -1146,16 +1190,17 @@ section {
 
 .slider-area {
   background-image: url("../images/banner.jpg");
-  height: 100vh;
+  height: 100%; /* Fill the section */
   background-repeat: no-repeat;
   background-size: cover;
   width: 95%;
   margin-left: 5%;
-  position: relative;
+  position: absolute; /* Changed from relative to absolute to fill background */
+  top: 0;
+  left: 0;
   overflow: hidden;
+  z-index: 1;
 }
-
-
 
 #hero-video {
   position: absolute;
@@ -1163,8 +1208,8 @@ section {
   left: 50%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   transform: translate(-50%, -50%);
   object-fit: cover;
@@ -1180,8 +1225,7 @@ section {
 }
 
 .slider-area .container {
-  position: relative;
-  z-index: 10;
+  display: none; /* We'll use our wrapper for the container content instead */
 }
 
 .slider-image {
@@ -1300,7 +1344,7 @@ svg.slider-shape {
 }
 
 .about h2 {
-  font-size: 48px;
+  font-size: clamp(2.5rem, 5vh, 3.5rem);
   font-weight: bold;
 }
 
@@ -1308,13 +1352,13 @@ svg.slider-shape {
   margin-bottom: 1.5rem;
 }
 .feature-item {
-  padding: 20px;
+  padding: clamp(15px, 2.5vh, 25px);
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.5s ease;
   height: 100%;
-  margin-bottom: 20px;
+  margin-bottom: clamp(10px, 2vh, 20px);
 }
 
 .feature-item:hover {
@@ -1327,14 +1371,15 @@ svg.slider-shape {
 .feature-item .title {
   color: #ffffff;
   transition: 0.8s ease;
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vh, 24px);
   font-weight: bold;
 }
 
 .feature-item p {
   color: #ffffff;
   font-weight: 300;
-  font-size: 18px;
+  font-size: clamp(14px, 1.8vh, 18px);
+  line-height: 1.5;
 }
 .feature-item .r-icon {
   font-size: 25px;
@@ -1487,6 +1532,64 @@ svg.slider-shape {
   transition: 0.5s ease;
 }
 
+/* PagePiling Section Safety */
+.section {
+    position: absolute; /* REQUIRED for the "Piling" overlapping effect */
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: #171717;
+    /* Sub-pixel rendering and Jitter fixes */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Defensive Safe Zone Wrapper */
+.section-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Extra generous padding for safe zone (30-80px fluid) */
+    padding: clamp(30px, 7vh, 100px) 0;
+    box-sizing: border-box;
+    scrollbar-gutter: stable; /* Prevents shifting when scrollbar appears */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Ensure background overlays, videos, and backdrops in sections fill everything correctly */
+.section > .bg-overlay,
+.section > .bg-service-overlay,
+.section > .portfolio-backdrop,
+.section > .video-background,
+.section > video,
+.section > .slider-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Allow clicks to pass through backgrounds */
+}
+
+/* Exception for slider-area which accounts for sidebar */
+.section > .slider-area {
+    width: 95%;
+    margin-left: 5%;
+    pointer-events: auto; /* Buttons inside slider-area need clicks */
+}
+
+.section-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
 .team-social ul {
   margin: 0;
 }
@@ -2202,12 +2305,20 @@ svg.slider-shape {
     margin-bottom: 3rem;
   }
 
-  /* Side Nav - Adjusted for tablet landscape */
   /* Side Nav - Adjusted for tablet landscape ONLY. Desktop uses default styles. */
-  @media screen and (max-width: 1279px) and (orientation: landscape) {
+  @media screen and (max-width: 1200px) and (orientation: landscape) {
     .side_nav {
-      width: 20%; /* Reduced from 25% to fit better on tablets */
-      left: 0 !important; /* Fully visible from left edge */
+      width: 280px !important; 
+      left: -210px !important;
+      display: block !important;
+    }
+    .side_nav.expand_nav {
+      left: 0 !important;
+    }
+    /* Push content to the right to make room for sidebar icons */
+    .about, .team, .portfolio-bg, .contact-sec, .slider-area {
+      width: calc(100% - 70px) !important;
+      margin-left: 70px !important;
     }
   }
   
@@ -2270,7 +2381,7 @@ svg.slider-shape {
 }
 
 /* Tablet Portrait and Mobile - Use floating navbar */
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1200px) {
   body {
     text-align: center;
     overflow-y: hidden !important;
@@ -2556,9 +2667,10 @@ svg.slider-shape {
    =================================== */
 
 /* 1. Header Overlap Fix for Mobile/Tablet */
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1200px) {
   section {
       padding-top: 100px !important; /* Offset for fixed header */
+      overflow: visible !important; /* Allow scroll on mobile */
   }
   .slider-area {
       height: 100vh; /* Keep banner full height */
@@ -2570,8 +2682,8 @@ svg.slider-shape {
   }
 }
 
-/* 2. iPad Landscape Sidebar Fix (Extended to 1199px for iPad Pro) */
-@media screen and (max-width: 1199px) and (orientation: landscape) {
+/* 2. iPad/Laptop Landscape Sidebar Fix (Extended to 1200px) */
+@media screen and (max-width: 1200px) and (orientation: landscape) {
   .side_nav {
       overflow: hidden !important;
       padding-bottom: 60px; /* Space for bottom logo */
@@ -2848,6 +2960,7 @@ svg.slider-shape {
        transform: translateY(-5px); /* Up instead of right on mobile */
    }
 }
+
 /* ===================================
    Fix for Contact Section on Laptops/Short Screens 
 ====================================== */
