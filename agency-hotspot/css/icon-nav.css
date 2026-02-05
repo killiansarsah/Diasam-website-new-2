@@ -161,31 +161,15 @@
     }
 }
 
-/* Responsive Behavior */
+/* Mobile and Tablet Portrait -/* Responsive Behavior */
 @media (min-width: 1200px) {
     .icon-nav-container {
         display: flex !important; /* Show on desktop */
     }
 }
 
-/* Tablet Landscape - Show icon navigation with sidebar */
-@media (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {
+@media (max-width: 1199px) {
     .icon-nav-container {
-        display: flex !important; /* Show on tablet landscape */
-        left: 245px; /* Center of visible strip */
-        transform: translate3d(-50%, -50%, 0); /* Center the container */
-        padding: 25px 0; /* Remove horizontal padding for perfect centering */
-        width: 60px; /* Fixed width to match icon size + minimal padding */
-    }
-    
-    .icon-nav-item {
-        margin: 0 auto; /* Center icons within container */
-    }
-}
-
-/* Mobile and Tablet Portrait - Hide icon navigation */
-@media (max-width: 1023px), (max-width: 1199px) and (orientation: portrait) {
-    .icon-nav-container {
-        display: none !important; /* Hide on mobile/tablet portrait */
+        display: none !important; /* Hide on mobile/tablet */
     }
 }

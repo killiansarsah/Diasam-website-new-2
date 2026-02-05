@@ -457,11 +457,19 @@
 @media (max-width: 767px) {
   .about-us-left {
     text-align: center;
-    padding: 30px 20px;
+    padding: 40px 25px;
+  }
+
+  .company-heading {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
   }
 
   .company-paragraph {
     text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
   }
 
   .about-us-right {
