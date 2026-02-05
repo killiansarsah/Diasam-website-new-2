@@ -453,7 +453,8 @@
     }
 }
 
-@media (max-width: 1200px) {
+/* Tablet Portrait and Mobile - 2 columns */
+@media (max-width: 1200px) and (orientation: portrait) {
     .works-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;

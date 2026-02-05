@@ -453,6 +453,28 @@
   }
 }
 
+/* Tablet Landscape ONLY - Better text spacing */
+@media (max-width: 1199px) and (orientation: landscape) {
+  .about-us-left {
+    padding: 30px 40px; /* More horizontal padding */
+  }
+  
+  .company-heading {
+    margin-bottom: 2.5vh; /* More space after headings */
+  }
+  
+  .company-paragraph {
+    font-size: clamp(1.15rem, 2.5vh, 1.5rem); /* Slightly larger text */
+    line-height: 40px !important; /* User's tested value - works perfectly on iPad mini/Air */
+    margin-bottom: 3.5vh; /* More space between paragraphs */
+  }
+  
+  .company-info-section {
+    margin-bottom: 30px; /* More space between sections */
+  }
+}
+
+
 /* Mobile (<768px) */
 @media (max-width: 767px) {
   .about-us-left {
