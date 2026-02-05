@@ -2008,7 +2008,7 @@ svg.slider-shape {
   border: 2px solid #ffffff;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 1;
+  opacity: 0; /* Hidden initially, JavaScript will show it on desktop */
   box-sizing: border-box;
 }
 
@@ -3179,5 +3179,18 @@ svg.slider-shape {
         width: 40px !important;
         height: 40px !important;
         font-size: 18px !important;
+    }
+}
+
+/* ===================================
+    Hide Custom Cursor on Mobile/Tablet
+====================================== */
+@media screen and (max-width: 1200px) {
+    #cursor,
+    #cursor-loader,
+    #hold-event {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
     }
 }

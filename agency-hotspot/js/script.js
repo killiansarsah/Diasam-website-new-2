@@ -543,6 +543,10 @@ function animatedCursor() {
 
         var e = {x: 0, y: 0}, t = {x: 0, y: 0}, n = .25, o = !1, a =    document.getElementById("cursor"),
             i = document.getElementById("cursor-loader");
+        
+        // Show cursor after initialization (was hidden in CSS to prevent ghost at top-left)
+        TweenMax.to(a, .3, {opacity: 1});
+        
         TweenLite.set(a, {xPercent: -50, yPercent: -50}), document.addEventListener("mousemove", function (t) {
             var n = window.pageYOffset || document.documentElement.scrollTop;
             e.x = t.pageX, e.y = t.pageY - n
@@ -620,7 +624,8 @@ function animatedCursor() {
     }
 }
 
-if (window.matchMedia("(min-width: 1201px)").matches) {
+// Only enable cursor on desktop (non-touch devices with large screens)
+if (window.matchMedia("(min-width: 1201px)").matches && !('ontouchstart' in window)) {
     setTimeout(function () {
         animatedCursor();
     }, 1000);
