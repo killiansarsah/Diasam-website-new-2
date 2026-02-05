@@ -1,0 +1,782 @@
+/* ===================================
+    DiaSam Services Section Styles
+====================================== */
+
+#about {
+  background-image: url('https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+#about .container {
+  position: relative;
+  z-index: 10;
+}
+
+.bg-service-overlay {
+  background: linear-gradient(135deg, rgba(4, 36, 63, 0.85) 0%, rgba(1, 46, 87, 0.85) 100%) !important;
+  opacity: 1 !important;
+}
+
+/* Clickable Feature Items */
+.clickable-feature {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  padding: 30px 25px;
+  background: rgba(255, 255, 255, 0.12) !important; /* Increased opacity */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.clickable-feature:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.18) !important; /* Increased hover opacity */
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.clickable-feature * {
+  pointer-events: none;
+}
+
+/* Services Section Title */
+.services-title {
+  font-size: clamp(22px, 4vw, 32px);
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Service Cards Grid */
+.services-grid {
+  margin-bottom: 10px;
+}
+
+/* Service Card Styling */
+.service-card {
+  padding: 10px 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  background: transparent;
+  min-height: 200px;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.service-card-inner {
+  color: #ffffff;
+}
+
+.service-icon {
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.service-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.service-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  line-height: 1.3;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* CTA Box Styling */
+.cta-box {
+  padding: 15px !important;
+  margin-top: 10px;
+}
+
+.cta-heading {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.cta-text {
+  padding: 5px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.cta-button {
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  padding: 14px 35px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Service Locations */
+.service-locations {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #cccccc;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.service-locations b {
+  font-weight: 600;
+}
+
+/* ===================================
+    Service Modal Styles
+====================================== */
+
+/* Modal Overlay */
+.service-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Darker overlay for focus */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000000;
+  overflow-y: auto;
+  animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-modal.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/* Modal Container */
+.modal-container {
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  margin: 50px auto;
+  overflow-y: auto;
+  animation: modalSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: rgba(20, 20, 20, 0.85); /* Slightly darker, more premium */
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.85),
+              inset 0 0 40px rgba(255, 255, 255, 0.02);
+  border-radius: 40px;
+  padding: 60px;
+  position: relative;
+  overflow: hidden; /* For shimmer effects */
+}
+
+/* Decorative shimmer for the modal content */
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Modal Close Button */
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-close:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(255, 68, 87, 0.4);
+  box-shadow: 0 0 15px rgba(255, 68, 87, 0.5);
+  border-color: rgba(255, 68, 87, 0.6);
+}
+
+/* Modal Header - Horizontal Layout */
+.modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 0 35px 0;
+  margin-bottom: 40px;
+}
+
+.modal-icon-circle {
+  width: 85px;
+  height: 85px;
+  background: radial-gradient(circle at center, rgba(30, 115, 190, 0.25) 0%, rgba(20, 20, 20, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 35px 0 0; /* Right margin instead of bottom */
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-shadow: 0 0 40px rgba(30, 115, 190, 0.35),
+              inset 0 0 20px rgba(255, 255, 255, 0.05);
+  animation: iconCirclePulse 4s infinite ease-in-out;
+}
+
+/* Secondary outer ring for a high-tech look */
+.modal-icon-circle::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(30, 115, 190, 0.4);
+  animation: rotateCircle 15s linear infinite;
+}
+
+/* Inner glow effect */
+.modal-icon-circle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.modal-icon-circle i {
+  color: #ffffff;
+  font-size: 2.8rem;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  transition: all 0.3s ease;
+}
+
+/* Keyframes for header icon animations */
+@keyframes iconCirclePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(30, 115, 190, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px rgba(30, 115, 190, 0.5);
+  }
+}
+
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #bbbbbb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+/* Modal Body */
+.modal-body {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.modal-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Modal Images Grid */
+.modal-images-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 15px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 0 auto 30px;
+  max-width: 600px;
+}
+
+.modal-image-card {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.modal-image-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.modal-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Modal Features List */
+.modal-features {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 12px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modal-features .feature-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-features .feature-item:hover {
+  background: rgba(30, 115, 190, 0.15); /* Theme Blue tint */
+  transform: translateY(-5px);
+  border-color: rgba(30, 115, 190, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.modal-features .feature-item i {
+  color: #1e73be; /* Theme Blue */
+  margin-right: 15px;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(30, 115, 190, 0.5));
+}
+
+.modal-features .feature-item span {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Modal Footer CTA */
+.modal-footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.modal-btn {
+  display: inline-block;
+  padding: 16px 45px;
+  background: linear-gradient(135deg, #1e73be 0%, #155a96 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 25px rgba(30, 115, 190, 0.4);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.modal-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(30, 115, 190, 0.6);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ===================================
+    Responsive Styles
+====================================== */
+
+/* Tablet and Mobile */
+@media screen and (max-width: 1279px) {
+  .services-grid {
+    margin-bottom: 20px;
+  }
+  
+  .service-card {
+    padding: 12px 10px;
+  }
+  
+  .modal-content {
+    padding: 35px;
+  }
+}
+
+/* Tablet Landscape */
+@media screen and (max-width: 1279px) and (orientation: landscape) {
+  .diasam-services .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .services-title {
+    font-size: clamp(22px, 4vw, 32px);
+  }
+  
+  .service-card {
+    padding: 10px 8px;
+  }
+  
+  .service-icon {
+    font-size: 28px;
+  }
+  
+  .service-title {
+    font-size: 13px;
+  }
+  
+  .service-description {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  
+  .cta-box {
+    padding: 15px !important;
+  }
+  
+  .cta-heading {
+    font-size: 20px;
+  }
+  
+  .cta-text {
+    font-size: 12px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .modal-container {
+    width: 95%;
+    margin: 20px auto;
+  }
+  
+  .modal-content {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+  
+  .modal-icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .modal-icon-circle i {
+    font-size: 2rem;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .modal-images-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .cta-box .row {
+    flex-direction: column;
+  }
+  
+  .cta-button {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .clickable-feature {
+    margin-bottom: 35px !important; /* Increased spacing */
+    height: auto !important; /* Ensure height doesn't stretch */
+    display: block !important;
+  }
+
+  /* Ensure the last one doesn't have extra bottom space in the section */
+  .col-12:last-child .clickable-feature {
+    margin-bottom: 10px !important;
+  }
+
+  .clickable-feature {
+    margin-bottom: 15px !important; /* Reduced from 35px */
+    padding: 20px 15px; /* Reduced padding */
+  }
+
+  /* Compact text on mobile */
+  .clickable-feature h5 {
+    font-size: 1.1rem;
+    margin-bottom: 5px !important;
+  }
+  
+  .clickable-feature p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-top: 5px !important;
+  }
+}
+
+/* Tablet / Portrait View Spacing */
+@media screen and (max-width: 991px) {
+  .clickable-feature {
+    margin-bottom: 30px !important;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 575px) {
+  .service-card {
+    min-height: auto;
+    padding: 15px 10px;
+  }
+  
+  .modal-content {
+    padding: 25px 15px;
+  }
+  
+  .modal-description {
+    font-size: 0.95rem;
+  }
+  
+  .modal-features .feature-item {
+    padding: 12px 14px;
+  }
+  
+  .modal-features .feature-item span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Body scroll lock when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Fix for Desktop Laptops with short screens (e.g. 1366x768) */
+@media screen and (min-width: 992px) and (max-height: 850px) {
+  /* Compact the section heading */
+  #about .section-heading {
+    margin-bottom: 10px !important; 
+  }
+
+  /* Compact the service cards */
+  #about .clickable-feature {
+    padding: 20px 20px !important; /* Reduced from 30px */
+    margin-bottom: 15px !important;
+  }
+  
+  #about .clickable-feature h5 {
+    font-size: 1.15rem !important;
+    margin-bottom: 5px !important;
+  }
+  
+  #about .clickable-feature p {
+    font-size: 0.9rem !important;
+    margin-top: 5px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Compact the CTA box */
+  #about .box {
+    margin-top: 5px !important;
+  }
+  
+  #about .box h2 {
+    font-size: 2rem !important;
+  }
+  
+  #about .box p {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+}
+
+/* Fix for Large Desktop Screens (2K/4K Monitors) */
+@media screen and (min-width: 1600px) and (min-height: 900px) {
+  /* Scale up feature items to fill vertical space */
+  #about .clickable-feature {
+    padding: 40px 30px !important; /* Increased padding */
+    min-height: 380px; /* Force taller cards */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  #about .feature-item i {
+    font-size: 3.5rem; /* Larger icon */
+    margin-bottom: 20px;
+  }
+
+  #about .clickable-feature h5 {
+    font-size: 1.6rem !important; /* Larger headings */
+    margin-bottom: 15px !important;
+  }
+  
+  #about .clickable-feature p {
+    font-size: 1.1rem !important; /* Larger text for better readability */
+    line-height: 1.6 !important;
+  }
+
+  /* Scale up layout spacing */
+  #about .row.pb-3 {
+    padding-bottom: 3rem !important;
+  }
+
+  /* Make CTA box more prominent */
+  #about .box {
+    padding: 40px !important;
+  }
+  
+  #about .box h2 {
+    font-size: 3rem !important;
+  }
+  
+  #about .box p {
+    font-size: 1.2rem !important;
+  }
+}

@@ -1,0 +1,625 @@
+/* ===================================
+    DiaSam Portfolio / Our Works Section
+====================================== */
+
+/* Section Heading */
+.portfolio-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.portfolio-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ZoomIn Animation */
+@-webkit-keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Grid items start hidden for animation on desktop */
+@media (min-width: 1201px) {
+    .grid-item {
+        opacity: 0;
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+}
+
+/* On mobile/tablet, show items immediately (no PagePiling) */
+@media (max-width: 1200px) {
+    .grid-item {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/* ZoomIn animation triggers when class is added */
+.grid-item.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Safari optimization - prevent flickering */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+
+/* PagePiling Section Specifics */
+#portfolio {
+    background-color: #171717;
+    overflow: hidden;
+}
+
+/* Desktop only: Force no scrollbar */
+@media (min-width: 1200px) {
+    #portfolio .section-wrapper {
+        overflow: hidden !important;
+    }
+}
+
+/* Mobile/Tablet: Allow scrolling */
+@media (max-width: 1199px) {
+    #portfolio .section-wrapper {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* Ensure content sits above backdrop */
+#portfolio .container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Portfolio Backdrop (Blur & Overlay) */
+.portfolio-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.portfolio-backdrop::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background-image: url('../images/our-works-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.portfolio-backdrop::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark Overlay */
+    z-index: 2;
+}
+
+/* Ensure content sits above backdrop */
+
+/* Image Grid */
+.works-grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Grid Item Card */
+/* Grid Item Card */
+.grid-item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 62.5%; /* 16:10 Aspect Ratio (10 / 16 = 0.625) */
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Safari optimizations */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Hover Effects */
+.grid-item:hover {
+    transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+}
+
+.grid-item:hover img {
+    transform: scale3d(1.1, 1.1, 1);
+}
+
+/* Navigation Controls Container */
+.nav-controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 2.5vh;
+    position: relative;
+    z-index: 10;
+}
+
+/* Prev/Next Buttons */
+.nav-btn-bottom {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-btn-bottom i {
+    font-size: 1.2rem;
+}
+
+.nav-btn-bottom:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale3d(1.15, 1.15, 1) translate3d(0, -2px, 0);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn-bottom:active {
+    transform: scale3d(0.95, 0.95, 1);
+}
+
+/* Dot Indicators */
+.nav-dots {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 30px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.dot.active {
+    background: #ffffff;
+    transform: scale3d(1.4, 1.4, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ===================================
+    Full Screen Modal
+====================================== */
+.portfolio-modal-overlay {
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    transform: scale3d(0.8, 0.8, 1);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.portfolio-modal-overlay.active .modal-image {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+}
+
+/* Modal Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 100001;
+    color: white;
+    font-size: 40px;
+    font-weight: 200;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg) scale3d(1.1, 1.1, 1);
+}
+
+/* Modal Nav Buttons */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100001;
+}
+
+.modal-nav-btn.prev {
+    left: 40px;
+}
+
+.modal-nav-btn.next {
+    right: 40px;
+}
+
+.modal-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate3d(0, -50%, 0) scale3d(1.1, 1.1, 1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) {
+    .works-grid {
+        max-width: 1100px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .works-grid {
+        max-width: 950px;
+        gap: 15px;
+    }
+    .portfolio-title {
+        font-size: 1.7rem;
+    }
+}
+
+/* Tablet Portrait and Mobile - 2 columns */
+@media (max-width: 1200px) and (orientation: portrait) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 95%;
+    }
+    .nav-controls {
+        gap: 15px;
+    }
+    .nav-btn-bottom {
+        width: 40px;
+        height: 40px;
+    }
+    .modal-close-btn {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    .modal-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    .modal-nav-btn.prev {
+        left: 15px;
+    }
+    .modal-nav-btn.next {
+        right: 15px;
+    }
+}
+
+/* Height based queries */
+@media (max-height: 800px) {
+    .grid-item {
+        border-radius: 8px;
+    }
+    .nav-controls {
+        margin-top: 1.5vh;
+    }
+}
+
+/* ===================================
+   Contact Form Notification (Toast)
+====================================== */
+#result {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    width: auto;
+    min-width: 320px;
+    max-width: 90%;
+    text-align: center;
+    pointer-events: none;
+}
+
+#result .alert {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 500;
+    display: inline-block;
+    pointer-events: auto;
+}
+
+/* ===================================
+   Contact Section Buttons
+====================================== */
+
+/* 1. Glass Morphism Buttons (Location, Phone, Email) */
+.btn-glass-contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-glass-contact i {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+/* Glass Hover Effects */
+.btn-glass-contact:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+.btn-glass-contact:hover i {
+    transform: scale(1.2);
+}
+
+/* Shimmer Animation Effect */
+.btn-glass-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    transition: none;
+}
+
+.btn-glass-contact:hover::before {
+    animation: shimmer 0.6s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* 2. Submit Button (.btn-white) Customization */
+.contact-form .btn-white {
+    background: #ffffff;
+    color: #171717; /* Dark text on white */
+    border: 2px solid #ffffff;
+    transition: all 0.3s ease;
+    /* Ensure existing button shape persists */
+}
+
+/* Inverted Hover Effect */
+.contact-form .btn-white:hover {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+

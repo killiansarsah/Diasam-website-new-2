@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.diasamsolutions.com/sitemap.xml
+
+# Block common bot traps
+Disallow: /cgi-bin/
+Disallow: /.git/

@@ -1,0 +1,59 @@
+/* ===================================
+   Responsive Navigation Control
+   Manages sidebar vs mobile navbar visibility
+====================================== */
+
+/* Desktop and Tablet Landscape - Sidebar hidden by default, hamburger visible */
+@media screen and (min-width: 1201px) {
+  /* Sidebar is hidden by default (controlled by style.css left: -20%) */
+  /* Hamburger menu should be visible to toggle the sidebar */
+  /* Icon navigation should be visible on the right side */
+}
+
+/* Tablet Portrait and Mobile - Hide sidebar, show mobile navbar */
+@media screen and (max-width: 1199px) {
+  .side_nav {
+    display: none !important;
+  }
+  
+  /* Force display of mobile elements regardless of bootstrap classes */
+  .d-md-none {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  
+  /* Fix hamburger icon: Override flex to block so lines stack vertically */
+  .my_nav_tog {
+     display: block !important;
+     visibility: visible !important;
+     opacity: 1 !important;
+  }
+  
+  /* Specifically ensure navbar is visible */
+  .navbar.d-md-none {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+
+/* Force Sidebar on Tablet Landscape (1024px-1199px) - Hide Mobile Nav */
+@media screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {
+  .side_nav {
+    display: block !important;
+  }
+  
+  /* CRITICAL: Hide mobile navbar on tablet landscape */
+  .d-md-none {
+    display: none !important;
+  }
+  
+  .navbar.d-md-none {
+    display: none !important;
+  }
+  
+  .my_nav_tog {
+    display: none !important;
+  }
+}
