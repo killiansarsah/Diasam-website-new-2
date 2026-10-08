@@ -66,22 +66,13 @@ export default function SidebarNav() {
           </span>
         </a>
 
-        <div className="flex items-center gap-2">
-          <a
-            href={`tel:${siteConfig.phoneRaw}`}
-            className="p-2 rounded-lg bg-slate-100 text-[#1e73be] border border-slate-200 hover:bg-slate-200 transition-colors"
-            aria-label="Call DiaSam"
-          >
-            <Phone className="w-4 h-4" />
-          </a>
-          <button
-            onClick={() => setDrawerOpen(!drawerOpen)}
-            className="p-2 rounded-lg bg-slate-100 text-slate-900 border border-slate-200 hover:bg-slate-200 transition-colors cursor-pointer"
-            aria-label="Toggle menu"
-          >
-            {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
+        <button
+          onClick={() => setDrawerOpen(!drawerOpen)}
+          className="p-2 rounded-lg bg-slate-100 text-slate-900 border border-slate-200 hover:bg-slate-200 transition-colors cursor-pointer"
+          aria-label="Toggle menu"
+        >
+          {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </header>
 
       {/* Desktop Fixed Left Navigation Strip (>=1024px) */}
